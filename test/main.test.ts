@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { buildArchiveUrl, flattenComments, mapPost, normalizePublicationUrl } from '../src/utils.js';
+import { buildArchiveUrl, flattenComments, mapPost, normalizePublicationUrl, parseArchivePage } from '../src/utils.js';
 
 describe('normalizePublicationUrl', () => {
     it('should turn a handle into a substack.com origin', () => {
@@ -24,10 +24,38 @@ describe('normalizePublicationUrl', () => {
 });
 
 describe('buildArchiveUrl', () => {
-    it('should build a paginated archive URL', () => {
-        expect(buildArchiveUrl('https://lenny.substack.com', 'top', 24)).toBe(
-            'https://lenny.substack.com/api/v1/archive?sort=top&offset=24&limit=12',
+    it('should build the first archive page without a cursor', () => {
+        expect(buildArchiveUrl('https://lenny.substack.com', 'new')).toBe(
+            'https://lenny.substack.com/api/v1/archive?sort=new&limit=20',
         );
+    });
+
+    it('should pass the encoded cursor of the next page', () => {
+        expect(buildArchiveUrl('https://lenny.substack.com', 'top', 'eyJ4IjoxfQ==')).toBe(
+            'https://lenny.substack.com/api/v1/archive?sort=top&limit=20&cursor=eyJ4IjoxfQ%3D%3D',
+        );
+    });
+});
+
+describe('parseArchivePage', () => {
+    it('should read posts and the next cursor', () => {
+        const page = parseArchivePage({ posts: [{ id: 1 }], nextCursor: 'abc' });
+        expect(page?.posts).toHaveLength(1);
+        expect(page?.nextCursor).toBe('abc');
+    });
+
+    it('should accept the older plain array response', () => {
+        expect(parseArchivePage([{ id: 1 }])).toEqual({ posts: [{ id: 1 }], nextCursor: null });
+    });
+
+    it('should treat a missing or empty cursor as the last page', () => {
+        expect(parseArchivePage({ posts: [], nextCursor: null })?.nextCursor).toBeNull();
+        expect(parseArchivePage({ posts: [], nextCursor: '' })?.nextCursor).toBeNull();
+    });
+
+    it('should reject an error response', () => {
+        expect(parseArchivePage({ errors: [{ param: 'offset' }] })).toBeNull();
+        expect(parseArchivePage(undefined)).toBeNull();
     });
 });
 

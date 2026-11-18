@@ -64,9 +64,9 @@ Actor.on('aborting', async () => {
 
 await crawler.run(
     publicationUrls.map((publicationUrl) => ({
-        url: buildArchiveUrl(publicationUrl, sort, 0),
+        url: buildArchiveUrl(publicationUrl, sort),
         label: LABELS.ARCHIVE,
-        userData: { publicationUrl, offset: 0 } satisfies ArchiveUserData,
+        userData: { publicationUrl, cursor: null } satisfies ArchiveUserData,
     })),
 );
 

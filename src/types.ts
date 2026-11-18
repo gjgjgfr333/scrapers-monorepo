@@ -106,7 +106,8 @@ export interface PostItem {
 
 export interface ArchiveUserData {
     publicationUrl: string;
-    offset: number;
+    /** Cursor of this archive page, null for the first one */
+    cursor: string | null;
 }
 
 export interface PostUserData {

@@ -1,7 +1,7 @@
 import type { ArchiveSort, PostComment, PostItem, RawComment, RawPost } from './types.js';
 
-// Substack returns fewer posts than requested for larger page sizes
-export const ARCHIVE_PAGE_SIZE = 12;
+// The archive endpoint rejects limits above 25 with 400
+export const ARCHIVE_PAGE_SIZE = 20;
 
 export const LABELS = {
     ARCHIVE: 'ARCHIVE',
@@ -30,8 +30,25 @@ export const normalizePublicationUrl = (value: string): string | null => {
     }
 };
 
-export const buildArchiveUrl = (baseUrl: string, sort: ArchiveSort, offset: number): string =>
-    `${baseUrl}/api/v1/archive?sort=${sort}&offset=${offset}&limit=${ARCHIVE_PAGE_SIZE}`;
+/**
+ * Archive page URL. Substack paginates the archive with an opaque cursor (`nextCursor` of the previous page);
+ * the old `offset` parameter is rejected with 400 since November 2026.
+ */
+export const buildArchiveUrl = (baseUrl: string, sort: ArchiveSort, cursor: string | null = null): string =>
+    `${baseUrl}/api/v1/archive?sort=${sort}&limit=${ARCHIVE_PAGE_SIZE}${
+        cursor ? `&cursor=${encodeURIComponent(cursor)}` : ''
+    }`;
+
+/** Archive page: an object with `posts` and `nextCursor`, or a plain array of posts in the older API */
+export const parseArchivePage = (json: unknown): { posts: RawPost[]; nextCursor: string | null } | null => {
+    if (Array.isArray(json)) return { posts: json as RawPost[], nextCursor: null };
+    const page = json as { posts?: unknown; nextCursor?: unknown } | null | undefined;
+    if (!page || !Array.isArray(page.posts)) return null;
+    return {
+        posts: page.posts as RawPost[],
+        nextCursor: typeof page.nextCursor === 'string' && page.nextCursor ? page.nextCursor : null,
+    };
+};
 
 export const buildPostUrl = (baseUrl: string, slug: string): string =>
     `${baseUrl}/api/v1/posts/${encodeURIComponent(slug)}`;
