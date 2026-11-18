@@ -46,21 +46,21 @@ The Actor uses pay-per-event pricing. You pay only for the data that lands in th
 
 | Event | Charged for | Price | Per 1,000 |
 | --- | --- | --- | --- |
-| `post` | A post without the body (`includeBody` off, or the body could not be loaded) | $0.001 | $1.00 |
-| `post-with-content` | A post with `bodyHtml` | $0.002 | $2.00 |
-| `comment` | Each comment returned in `comments` | $0.0005 | $0.50 |
+| `post` | A post without the body (`includeBody` off, or the body could not be loaded) | $0.0005 | $0.50 |
+| `post-with-content` | A post with `bodyHtml` | $0.001 | $1.00 |
+| `comment` | Each comment returned in `comments` | $0.0003 | $0.30 |
 | `apify-actor-start` | Each run, per GB of memory ($0.0002 at the default 4 GB) | $0.00005 | — |
 
-A post is charged as either `post` or `post-with-content`, never both.
+A post is charged as either `post` or `post-with-content`, never both. These are Free plan prices; on paid Apify plans (Starter, Scale, Business) they are 10–30 % lower.
 
 Examples:
 
 | Run | Cost |
 | --- | --- |
-| 50 newest posts of one publication, with the body | about $0.10 |
-| 1,000 posts, metadata only | about $1.00 |
-| 1,000 posts with the body | about $2.00 |
-| 100 posts with the body and 2,000 comments in total | about $1.20 |
+| 50 newest posts of one publication, with the body | about $0.05 |
+| 1,000 posts, metadata only | about $0.50 |
+| 1,000 posts with the body | about $1.00 |
+| 100 posts with the body and 2,000 comments in total | about $0.70 |
 
 To keep a run within a budget, set the maximum cost per run in the run options. When the limit is reached, the Actor stops and keeps everything it has already saved.
 

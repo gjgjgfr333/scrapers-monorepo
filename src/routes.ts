@@ -11,13 +11,13 @@ import type {
     ScrapeOptions,
 } from './types.js';
 import {
-    ARCHIVE_PAGE_SIZE,
     buildArchiveUrl,
     buildCommentsUrl,
     buildPostUrl,
     flattenComments,
     LABELS,
     mapPost,
+    parseArchivePage,
 } from './utils.js';
 
 export const createRouter = (options: ScrapeOptions) => {
@@ -30,9 +30,10 @@ export const createRouter = (options: ScrapeOptions) => {
     });
 
     router.addHandler<ArchiveUserData>(LABELS.ARCHIVE, async ({ request, response, json, crawler, log }) => {
-        const { publicationUrl, offset } = request.userData;
+        const { publicationUrl, cursor } = request.userData;
+        const page = parseArchivePage(json);
 
-        if (!Array.isArray(json)) {
+        if (!page) {
             log.warning('Publication archive is not available, skipping', {
                 publicationUrl,
                 statusCode: response.statusCode,
@@ -42,7 +43,7 @@ export const createRouter = (options: ScrapeOptions) => {
 
         const state = await crawler.useState<CrawlState>({ postsPerPublication: {} });
         const taken = state.postsPerPublication[publicationUrl] ?? 0;
-        const posts = (json as RawPost[]).slice(0, Math.max(options.maxPostsPerPublication - taken, 0));
+        const posts = page.posts.slice(0, Math.max(options.maxPostsPerPublication - taken, 0));
         const total = taken + posts.length;
         state.postsPerPublication[publicationUrl] = total;
 
@@ -64,15 +65,14 @@ export const createRouter = (options: ScrapeOptions) => {
             await pushPosts(items, crawler);
         }
 
-        log.info(`Found ${posts.length} posts`, { publicationUrl, offset, total });
+        log.info(`Found ${posts.length} posts`, { publicationUrl, page: cursor ? 'next' : 'first', total });
 
-        if (json.length > 0 && total < options.maxPostsPerPublication) {
-            const nextOffset = offset + ARCHIVE_PAGE_SIZE;
+        if (page.posts.length > 0 && page.nextCursor && total < options.maxPostsPerPublication) {
             await crawler.addRequests([
                 {
-                    url: buildArchiveUrl(apiBaseUrl, options.sort, nextOffset),
+                    url: buildArchiveUrl(apiBaseUrl, options.sort, page.nextCursor),
                     label: LABELS.ARCHIVE,
-                    userData: { publicationUrl, offset: nextOffset } satisfies ArchiveUserData,
+                    userData: { publicationUrl, cursor: page.nextCursor } satisfies ArchiveUserData,
                 },
             ]);
         }
