@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- full-bleed background: scripts/render-icon.py rounds the corners -->
+  <rect width="512" height="512" fill="#181838"/>
+  <!-- stack of posts -->
+  <rect x="150" y="96" width="250" height="300" rx="22" fill="#ff8c42"/>
+  <rect x="122" y="126" width="250" height="300" rx="22" fill="#ffb478"/>
+  <rect x="94" y="156" width="250" height="300" rx="22" fill="#ffffff"/>
+  <g fill="#181838">
+    <rect x="130" y="196" width="170" height="18" rx="9"/>
+    <rect x="130" y="240" width="140" height="18" rx="9"/>
+    <rect x="130" y="284" width="170" height="18" rx="9"/>
+    <rect x="130" y="328" width="110" height="18" rx="9"/>
+  </g>
+  <!-- magnifier -->
+  <line x1="410" y1="400" x2="472" y2="462" stroke="#ffffff" stroke-width="34" stroke-linecap="round"/>
+  <circle cx="360" cy="350" r="72" fill="#ff6719" stroke="#ffffff" stroke-width="18"/>
+</svg>
