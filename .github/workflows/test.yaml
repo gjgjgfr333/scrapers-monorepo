@@ -3,17 +3,37 @@ name: CI
 on:
     pull_request:
     push:
-        branches: [main, master]
+        branches: [main]
 
 jobs:
-    build-and-test:
+    actors:
         runs-on: ubuntu-latest
+        outputs:
+            list: ${{ steps.list.outputs.list }}
+        steps:
+            - uses: actions/checkout@v7
+            # every folder in actors/ with a package.json is an Actor
+            - id: list
+              run: echo "list=$(ls -d actors/*/package.json | xargs -n1 dirname | jq -R . | jq -sc .)" >> "$GITHUB_OUTPUT"
+
+    build-and-test:
+        needs: actors
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                actor: ${{ fromJson(needs.actors.outputs.list) }}
+        defaults:
+            run:
+                working-directory: ${{ matrix.actor }}
         steps:
             - uses: actions/checkout@v7
             - uses: actions/setup-node@v7
               with:
                   node-version: 24
                   cache: npm
+                  cache-dependency-path: ${{ matrix.actor }}/package-lock.json
             - run: npm ci
             - run: npm run build
+            - run: npm run lint
             - run: npm test
