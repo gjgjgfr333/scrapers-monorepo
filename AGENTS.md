@@ -1,8 +1,8 @@
-# Apify Actor project
+# Apify Actors monorepo
 
-This project is an Apify Actor: a serverless program packaged as a Docker image. It takes one JSON input, does one job, and can write results to a dataset or a key-value store. Entry point: `src/main.ts`. Configuration: `.actor/actor.json`.
+Every folder in `actors/` is a separate Apify Actor: a serverless program packaged as a Docker image, with its own `package.json`, `.actor/actor.json`, README (its Apify Store page) and CLAUDE.md. Actors share nothing at runtime; run every command below from the Actor's folder (`cd actors/<name>`). Entry point of an Actor: `src/main.ts`. Configuration: `.actor/actor.json`.
 
-Before the first change, set `meta.generatedBy` in `.actor/actor.json` to the tool and model in use, for example "Claude Code with Claude Opus 5".
+Before the first change to an Actor, set `meta.generatedBy` in its `.actor/actor.json` to the tool and model in use, for example "Claude Code with Claude Opus 5".
 
 ## Commands
 

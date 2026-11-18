@@ -1,51 +1,35 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-Generic Apify Actor workflow, rules and the "ask first" list live in AGENTS.md and apply here:
+Apify Actors of eugene_krabs, one folder per Actor in `actors/`. Generic Apify workflow, rules and the "ask first" list:
 
 @AGENTS.md
 
-## Commands
+## Layout
 
-```bash
-apify run --purge                 # local run with storage/key_value_stores/default/INPUT.json, results in storage/datasets/default/
-npm run build                     # tsc to dist/ (what CI and the Docker image run)
-npm run lint                      # eslint with @apify/eslint-config; lint:fix to autofix
-npm run format                    # prettier (4 spaces, single quotes, width 120); format:check to verify
-npm test                          # vitest run
-npx vitest run -t "mapPost"       # single test by name
-apify validate-schema             # after editing .actor/*.json
+```
+actors/<name>/        one Apify Actor: own package.json, .actor/, src/, test/, README (Store page), CLAUDE.md
+scripts/              helpers shared by the skills (Python 3 stdlib + Pillow, run with python3 -I)
+.claude/skills/       actor-idea, actor-build + ai-factory skills (/aif-*)
+.github/              CI for every Actor, issue template "Идея актора"
 ```
 
-CI (`.github/workflows/test.yaml`) runs `npm ci`, `npm run build`, `npm test` on Node 24.
+Actors share no code at runtime: each is built and deployed from its own folder (`cd actors/<name> && apify push`). To start a new one, copy the layout of `actors/substack-scraper` (the `actor-build` skill does it), not `apify create` (interactive and initializes a nested git repo).
 
-If vitest fails at startup with `Cannot find native binding` (rolldown), it is the npm optional-dependencies bug: remove `node_modules` and `package-lock.json` and reinstall. This is a package install, so ask first.
+## Workflow
 
-## Architecture
+1. `/actor-idea [category]` — reads Apify Store in the user's Chrome, analyses competitors, files GitHub issues labelled `actor-idea`.
+2. `/actor-build <issue>` — implements the Actor, checks it with real requests, deploys, sets up the Store page, prices and an example task, merges the PR and closes the issue.
 
-The Actor scrapes Substack through its unauthenticated JSON API, not HTML. `CheerioCrawler` is used only as an HTTP crawler: `additionalMimeTypes: ['application/json']` is set and handlers read `json`, never `$`.
+Helpers:
 
-One publication goes through up to three request types, chained via `request.userData` (`src/routes.ts`, labels in `src/utils.ts`):
+```bash
+python3 -I scripts/store-competitors.py "<query>" [--category CODE] [--limit N] [--json]   # demand, success rate, rating, price, last update
+python3 -I scripts/render-icon.py actors/<name>/.actor/icon.svg                            # 512×512 PNG with rounded corners (macOS)
+```
 
-1. `ARCHIVE` — `/api/v1/archive?sort=&offset=&limit=12`. Lists posts without bodies, maps them to `PostItem`, and enqueues the next page until `maxPostsPerPublication` is reached or the page is empty.
-2. `POST` — `/api/v1/posts/<slug>`, only when `includeBody` is on. Adds `bodyHtml`.
-3. `COMMENTS` — `/api/v1/post/<id>/comments`, only when `includeComments` is on. Adds the flattened comment tree.
+## Conventions
 
-The partially built `PostItem` travels in `userData.item` and is pushed to the dataset by whichever stage is last for the current options. `failedRequestHandler` in `src/main.ts` pushes the item anyway when a `POST` or `COMMENTS` request fails, so a post is never lost because of its details.
-
-Every item goes to the dataset through `pushPosts` in `src/charging.ts`, never through the handler's own `pushData`. It charges the pay-per-event events (`post` or `post-with-content` depending on whether `bodyHtml` was loaded, plus `comment` per comment) and aborts the crawler when the user's maximum run cost is reached. The event names must match the ones configured in Apify Console (Publication → Monetization), and the prices live there and in the README pricing table, not in code. To exercise charging locally, run the built Actor with `ACTOR_TEST_PAY_PER_EVENT=1 ACTOR_MAX_TOTAL_CHARGE_USD=<n> ACTOR_USE_CHARGING_LOG_DATASET=1`; every event then costs $1 and the charges land in `storage/datasets/charging_log/`.
-
-Things that are not obvious from a single file:
-
-- The per-publication post tally lives in `crawler.useState` (`CrawlState`), keyed by the normalized publication URL, so it survives migrations. Archive pages of one publication are fetched sequentially, which keeps the tally race-free.
-- Publications on `*.substack.com` may redirect to a custom domain. Follow-up requests use the origin of `request.loadedUrl` (`apiBaseUrl`), while `publicationUrl` stays the normalized input value.
-- `ARCHIVE_PAGE_SIZE` is 12 on purpose: Substack returns fewer items than requested for larger limits (23 for 25–50, 1 for 51+).
-- A missing publication answers with `application/octet-stream`, which Crawlee rejects before the handler runs; it surfaces in `failedRequestHandler`, not in the `ARCHIVE` handler.
-- Paid posts (`audience !== 'everyone'`) return only the public part of the body, and their comments come back empty.
-
-Pure logic (URL normalization, URL builders, `mapPost`, `flattenComments`) is in `src/utils.ts` and is what `test/main.test.ts` covers; tests do not hit the network. `test/` is outside `tsconfig.json`'s `include` and is ignored by eslint.
-
-## Keeping things in sync
-
-A new input option touches four places: `Input`/`ScrapeOptions` in `src/types.ts`, the destructuring in `src/main.ts`, `.actor/input_schema.json`, and the input table in `README.md`. A new output field touches `PostItem`, `mapPost`, `.actor/dataset_schema.json`, and the README output example.
+- Commit messages in English. Work in a branch (`actor/<name>`, `fix/…`, `chore/…`), PR into `main`, merge with a merge commit (`gh pr merge --merge`).
+- CI (`.github/workflows/test.yaml`) runs `npm ci`, `build`, `lint`, `test` for every folder in `actors/` with a `package.json`.
+- The repository is the source of truth for README, schemas and code; prices and Store texts are set in Apify Console and must match the README. Before `apify push`, merge the fresh `main`: push uploads the working copy, including README.
+- Apify account: tabakevgenijj@gmail.com, username `eugene_krabs`. Never log in on the user's behalf.
