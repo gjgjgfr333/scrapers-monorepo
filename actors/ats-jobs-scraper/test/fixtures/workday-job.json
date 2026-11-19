@@ -1,0 +1,36 @@
+{
+    "jobPostingInfo": {
+        "id": "ac092cf22d13102cd2dc5e66ca250000",
+        "title": "Mechanical and Thermal Supply Base Engineer",
+        "jobDescription": "<p>NVIDIA is a global leader in the field of AI, computer graphics, PC gaming and accelerated computing. The Supply Base Engineering Team (SBE) at NVIDIA is dedicated to the excellence in New Product Introduction (NPI) for mechanical and thermal components.  We have an immediate opening for a Supply Base Engineer role. The mission is to ensure the seamless integration of design and manufacturing p",
+        "location": "Vietnam, Hanoi",
+        "postedOn": "Posted Today",
+        "startDate": "2026-11-19",
+        "timeType": "Full time",
+        "jobReqId": "JR2021220",
+        "jobPostingId": "Mechanical-and-Thermal-Supply-Base-Engineer_JR2021220",
+        "jobPostingSiteId": "NVIDIAExternalCareerSite",
+        "country": {
+            "descriptor": "Vietnam",
+            "id": "db69e8c8446c11de98360015c5e6daf6"
+        },
+        "canApply": true,
+        "posted": true,
+        "includeResumeParsing": true,
+        "jobRequisitionLocation": {
+            "descriptor": "Vietnam, Hanoi",
+            "country": {
+                "descriptor": "Vietnam",
+                "id": "db69e8c8446c11de98360015c5e6daf6",
+                "alpha2Code": "VN"
+            }
+        },
+        "externalUrl": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Vietnam-Hanoi/Mechanical-and-Thermal-Supply-Base-Engineer_JR2021220",
+        "questionnaireId": "2f2764b3a82910064296831695150000"
+    },
+    "hiringOrganization": {
+        "name": "VN01 NVIDIA Vietnam Company Limited",
+        "url": ""
+    },
+    "userAuthenticated": false
+}
