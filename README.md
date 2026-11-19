@@ -5,6 +5,7 @@ Apify Actors by [eugene_krabs](https://apify.com/eugene_krabs). Each folder in `
 | Actor | Store | What it does |
 | --- | --- | --- |
 | [substack-scraper](actors/substack-scraper) | [eugene_krabs/substack-scraper](https://apify.com/eugene_krabs/substack-scraper) | Posts, full text and comments of any Substack newsletter |
+| [ats-jobs-scraper](actors/ats-jobs-scraper) | [eugene_krabs/ats-jobs-scraper](https://apify.com/eugene_krabs/ats-jobs-scraper) | Open jobs from career pages on Greenhouse, Lever, Ashby, Workable, Recruitee, SmartRecruiters and Workday |
 
 ## Working on an Actor
 
