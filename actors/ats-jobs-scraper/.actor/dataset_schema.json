@@ -1,0 +1,104 @@
+{
+    "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+    "actorSpecification": 1,
+    "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "ats": {
+                "type": "string",
+                "enum": ["greenhouse", "lever", "ashby", "workable", "recruitee", "smartrecruiters", "workday"],
+                "description": "Applicant tracking system the job comes from"
+            },
+            "company": {
+                "type": "string",
+                "description": "Company name when the ATS gives it, otherwise the board slug"
+            },
+            "companySlug": {
+                "type": "string",
+                "description": "Board identifier in the ATS (slug, account or Workday tenant)"
+            },
+            "jobId": { "type": "string", "description": "Job ID in the ATS" },
+            "title": { "type": "string", "description": "Job title" },
+            "url": { "type": "string", "description": "Public URL of the job posting" },
+            "applyUrl": { "type": ["string", "null"], "description": "Application URL" },
+            "location": { "type": ["string", "null"], "description": "Main location as the ATS shows it" },
+            "locations": { "type": "array", "items": { "type": "string" }, "description": "All locations of the job" },
+            "country": {
+                "type": ["string", "null"],
+                "description": "Two-letter ISO country code, when the ATS gives one"
+            },
+            "remote": { "type": ["boolean", "null"], "description": "True when the job can be done remotely" },
+            "workplaceType": {
+                "type": ["string", "null"],
+                "enum": ["onsite", "hybrid", "remote", null],
+                "description": "Workplace type: onsite, hybrid or remote"
+            },
+            "employmentType": {
+                "type": ["string", "null"],
+                "description": "full-time, part-time, contract, temporary, internship, or the ATS wording"
+            },
+            "department": { "type": ["string", "null"], "description": "Department or team" },
+            "salaryMin": { "type": ["number", "null"], "description": "Lower end of the salary range" },
+            "salaryMax": { "type": ["number", "null"], "description": "Upper end of the salary range" },
+            "salaryCurrency": { "type": ["string", "null"], "description": "Salary currency, e.g. USD" },
+            "salaryPeriod": {
+                "type": ["string", "null"],
+                "description": "Salary period: year, month, week, day or hour"
+            },
+            "postedAt": { "type": ["string", "null"], "description": "Publication date in ISO 8601 format" },
+            "descriptionHtml": { "type": ["string", "null"], "description": "Job description as HTML" },
+            "descriptionText": { "type": ["string", "null"], "description": "Job description as plain text" },
+            "scrapedAt": { "type": "string", "description": "When the job was scraped, ISO 8601" }
+        },
+        "required": ["ats", "company", "companySlug", "jobId", "title", "url", "scrapedAt"]
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": ["company", "title", "location", "workplaceType", "department", "postedAt", "url"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "company": { "label": "Company", "format": "text" },
+                    "title": { "label": "Title", "format": "text" },
+                    "location": { "label": "Location", "format": "text" },
+                    "workplaceType": { "label": "Workplace", "format": "text" },
+                    "department": { "label": "Department", "format": "text" },
+                    "postedAt": { "label": "Posted", "format": "date" },
+                    "url": { "label": "URL", "format": "link" }
+                }
+            }
+        },
+        "salaries": {
+            "title": "Salaries",
+            "transformation": {
+                "fields": [
+                    "company",
+                    "title",
+                    "location",
+                    "salaryMin",
+                    "salaryMax",
+                    "salaryCurrency",
+                    "salaryPeriod",
+                    "url"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "company": { "label": "Company", "format": "text" },
+                    "title": { "label": "Title", "format": "text" },
+                    "location": { "label": "Location", "format": "text" },
+                    "salaryMin": { "label": "Min", "format": "number" },
+                    "salaryMax": { "label": "Max", "format": "number" },
+                    "salaryCurrency": { "label": "Currency", "format": "text" },
+                    "salaryPeriod": { "label": "Per", "format": "text" },
+                    "url": { "label": "URL", "format": "link" }
+                }
+            }
+        }
+    }
+}
