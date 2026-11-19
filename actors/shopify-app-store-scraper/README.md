@@ -114,8 +114,8 @@ An app (lists shortened):
     "developer": "Judge.me",
     "developerUrl": "https://apps.shopify.com/partners/judge-me",
     "rating": 5,
-    "reviewCount": 50424,
-    "ratingDistribution": { "1": 156, "2": 40, "3": 80, "4": 830, "5": 49319 },
+    "reviewCount": 50426,
+    "ratingDistribution": { "1": 156, "2": 40, "3": 80, "4": 830, "5": 49320 },
     "pricingSummary": "Free plan available. Free trial available.",
     "plans": [
         {
@@ -132,11 +132,11 @@ An app (lists shortened):
         },
         {
             "name": "Awesome",
-            "price": 13.64,
-            "currency": "EUR",
+            "price": 15,
+            "currency": "USD",
             "priceUsd": 15,
             "period": "month",
-            "priceText": "€13.64 EUR/month",
+            "priceText": "$15/month",
             "yearlyPriceText": null,
             "additionalCharges": null,
             "trialDays": 15,
@@ -148,7 +148,7 @@ An app (lists shortened):
     "worksWith": ["Checkout", "Customer accounts", "Shopify Flow"],
     "launchedAt": "2015-06-25",
     "builtForShopify": true,
-    "scrapedAt": "2026-11-19T12:45:51.569Z"
+    "scrapedAt": "2026-11-19T14:08:54.355Z"
 }
 ```
 
