@@ -9,6 +9,8 @@ export const CHARGE_EVENTS = {
 } as const;
 
 let stopMessagePrinted = false;
+/** Charges started by parallel handlers that the charging manager does not count yet */
+let chargesInFlight = 0;
 
 const stop = async (crawler: Pick<CheerioCrawler, 'autoscaledPool'>, message: string) => {
     if (!stopMessagePrinted) {
@@ -36,15 +38,20 @@ export const pushJobs = async (
             await stop(crawler, `Saved ${maxItems} jobs, the limit set in the input, stopping`);
             return;
         }
-        if (chargingManager.calculateMaxEventChargeCountWithinLimit(CHARGE_EVENTS.JOB) < 1) {
+        if (chargingManager.calculateMaxEventChargeCountWithinLimit(CHARGE_EVENTS.JOB) - chargesInFlight < 1) {
             await stop(crawler, 'The maximum cost of the run was reached, stopping the crawler');
             return;
         }
 
-        // Count before awaiting, so parallel handlers cannot overshoot maxItems
+        // Count before awaiting, so parallel handlers cannot overshoot maxItems or the cost limit
         state.saved += 1;
         const summary = state.companies[companyKey];
         if (summary) summary.jobsSaved += 1;
-        await Actor.pushData(item, CHARGE_EVENTS.JOB);
+        chargesInFlight += 1;
+        try {
+            await Actor.pushData(item, CHARGE_EVENTS.JOB);
+        } finally {
+            chargesInFlight -= 1;
+        }
     }
 };

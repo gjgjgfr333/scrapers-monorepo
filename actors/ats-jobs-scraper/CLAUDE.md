@@ -48,6 +48,7 @@ Things that are not obvious from a single file:
 - Filters run twice: in partial mode on the list (unknown values pass, so no detail request is wasted on a job that cannot match) and in full mode before pushing.
 - Pages of one company are fetched one after another, so per-company counts in `crawler.useState` (`CrawlState`) are race-free; `reserved` caps detail requests at `maxItems` across companies.
 - Greenhouse public API has no salary (`pay_transparency` returns empty ranges). Lever has `salaryRange` only for some companies. Ashby gives countries as names, mapped to ISO codes by a small table in `toCountryCode`.
+- Detail handlers push in parallel, so `pushJobs` counts charges in flight (`chargesInFlight`); without it a $5 test limit saved 8–9 jobs and charged 6.
 - Recruitee offers carry `mailbox_email` and application questions: not copied to the output.
 
 ## Keeping things in sync
