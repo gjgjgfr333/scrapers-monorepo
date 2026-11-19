@@ -1,0 +1,20 @@
+{
+    "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+    "actorSpecification": 1,
+    "name": "ats-jobs-scraper",
+    "title": "ATS Jobs Scraper: Greenhouse, Lever, Ashby, Workday",
+    "description": "Scrape every open job from company career pages on Greenhouse, Lever, Ashby, Workable, Recruitee, SmartRecruiters and Workday: title, location, remote, salary, department, date and full description. Live data, no login.",
+    "version": "0.0",
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "ts-crawlee-cheerio",
+        "generatedBy": "Claude Code with Claude Opus 5.5"
+    },
+    "inputSchema": "./input_schema.json",
+    "outputSchema": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json",
+        "keyValueStore": "./key_value_store_schema.json"
+    },
+    "dockerfile": "../Dockerfile"
+}

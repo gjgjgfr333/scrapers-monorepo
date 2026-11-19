@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- full-bleed background: scripts/render-icon.py rounds the corners -->
+  <rect width="512" height="512" fill="#0f5c4c"/>
+  <!-- briefcase -->
+  <path d="M196 150 v-30 a26 26 0 0 1 26 -26 h68 a26 26 0 0 1 26 26 v30" fill="none" stroke="#ffffff" stroke-width="30" stroke-linejoin="round"/>
+  <rect x="76" y="150" width="360" height="250" rx="34" fill="#ffffff"/>
+  <rect x="76" y="238" width="360" height="26" fill="#cdeee4"/>
+  <rect x="226" y="222" width="60" height="58" rx="12" fill="#0f5c4c"/>
+  <!-- list of jobs coming out -->
+  <circle cx="392" cy="392" r="88" fill="#ffc83d" stroke="#0f5c4c" stroke-width="16"/>
+  <g fill="#0f5c4c">
+    <rect x="344" y="354" width="96" height="16" rx="8"/>
+    <rect x="344" y="384" width="74" height="16" rx="8"/>
+    <rect x="344" y="414" width="96" height="16" rx="8"/>
+  </g>
+</svg>

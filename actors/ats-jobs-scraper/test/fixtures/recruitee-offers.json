@@ -1,0 +1,96 @@
+{
+    "offers": [
+        {
+            "id": 2832667,
+            "slug": "copywriter-3",
+            "title": "Copywriter",
+            "careers_url": "https://careers.bunq.com/o/copywriter-3",
+            "careers_apply_url": "https://careers.bunq.com/o/copywriter-3/c/new",
+            "company_name": "bunq",
+            "department": "Content & Design",
+            "location": "Amsterdam, Noord-Holland, Netherlands",
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "country_code": "NL",
+            "locations": [
+                {
+                    "id": 39979,
+                    "name": "Amsterdam",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Netherlands",
+                    "country_code": "NL"
+                },
+                {
+                    "id": 39977,
+                    "name": "Istanbul",
+                    "city": "İstanbul",
+                    "state": "İstanbul",
+                    "country": "Türkiye",
+                    "country_code": "TR"
+                },
+                {
+                    "id": 39967,
+                    "name": "Sofia",
+                    "city": "Sofia",
+                    "state": "Sofia (stolitsa)",
+                    "country": "Bulgaria",
+                    "country_code": "BG"
+                }
+            ],
+            "remote": false,
+            "hybrid": true,
+            "on_site": false,
+            "employment_type_code": "fulltime_permanent",
+            "published_at": "2026-11-18 16:23:32 UTC",
+            "created_at": "2026-11-18 16:12:44 UTC",
+            "salary": {
+                "max": null,
+                "min": null,
+                "period": null,
+                "currency": null
+            },
+            "description": "<p>At bunq, we’re on a mission to Make Life Easy for our users by creating the most user-centric banking experience out there. Every email, push notification and in-app message we send should feel like it was written for the person reading it, not for us. Right now, nobody owns that.</p><p>That’s where you come in. As our Copywriter, you will own every message our users get across email, push and ",
+            "requirements": "<ul><li><p>Your English is fluent at a professional level, and your grammar and spelling are spotless. Native or near-native is a plus.</p></li><li><p>You’ve built or improved AI agents or prompts that produce copy, and you know how to fix them when the output drifts.</p></li><li><p>You write creative, user-first copy that gets people to open, click and act.</p></li><li><p>You’ve turned briefs int",
+            "status": "published"
+        },
+        {
+            "id": 2823928,
+            "slug": "security-engineer-3",
+            "title": "Security Engineer",
+            "careers_url": "https://careers.bunq.com/o/security-engineer-3",
+            "careers_apply_url": "https://careers.bunq.com/o/security-engineer-3/c/new",
+            "company_name": "bunq",
+            "department": "Technology",
+            "location": "Amsterdam, Noord-Holland, Netherlands",
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "country_code": "NL",
+            "locations": [
+                {
+                    "id": 39979,
+                    "name": "Amsterdam",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Netherlands",
+                    "country_code": "NL"
+                }
+            ],
+            "remote": false,
+            "hybrid": true,
+            "on_site": false,
+            "employment_type_code": "fulltime_permanent",
+            "published_at": "2026-11-11 13:21:40 UTC",
+            "created_at": "2026-11-11 13:06:54 UTC",
+            "salary": {
+                "max": null,
+                "min": null,
+                "period": null,
+                "currency": null
+            },
+            "description": "<p style=\"text-align:start;\">At bunq, we’re on a mission to Make Life Easy for our users by creating the most user-centric banking experience out there. That starts with keeping their data safe. As AI makes attackers faster, we’re seeing more critical zero-day vulnerabilities than ever, and we need to stay ahead of them.</p><p style=\"text-align:start;\">That’s where you come in. As our&nbsp;<strong",
+            "requirements": "<ul><li><p>You’ve worked hands-on as a security engineer, investigating and triaging security incidents.</p></li><li><p>You write code to automate security work, not just to run scripts.</p></li><li><p>You’ve worked with identity governance and know how to build secure login and access solutions.</p></li><li><p>You communicate clearly with stakeholders, especially under pressure when someone is lo",
+            "status": "published"
+        }
+    ]
+}

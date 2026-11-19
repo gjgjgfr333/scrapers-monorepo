@@ -1,0 +1,76 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "ATS Jobs Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "companies": {
+            "title": "Company career pages",
+            "type": "array",
+            "description": "Career pages to scrape, one per line. Supported: Greenhouse (https://boards.greenhouse.io/airbnb), Lever (https://jobs.lever.co/palantir), Ashby (https://jobs.ashbyhq.com/ramp), Workable (https://apply.workable.com/huggingface), Recruitee (https://bunq.recruitee.com), SmartRecruiters (https://jobs.smartrecruiters.com/BoschGroup) and Workday (https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite). The short form ats:slug also works, e.g. greenhouse:airbnb.",
+            "editor": "stringList",
+            "prefill": [
+                "https://boards.greenhouse.io/airbnb",
+                "https://jobs.lever.co/palantir",
+                "https://jobs.ashbyhq.com/ramp"
+            ]
+        },
+        "includeDescription": {
+            "title": "Include job description",
+            "type": "boolean",
+            "description": "Return the full job description as HTML and plain text. Workable, SmartRecruiters and Workday need one extra request per job for it, so turning this off makes those runs faster.",
+            "default": true
+        },
+        "keywords": {
+            "title": "Title keywords",
+            "type": "array",
+            "description": "Keep only jobs whose title contains at least one of these words (case-insensitive), e.g. engineer, sales. Leave empty to keep every job.",
+            "editor": "stringList",
+            "default": []
+        },
+        "locations": {
+            "title": "Locations",
+            "type": "array",
+            "description": "Keep only jobs whose location contains at least one of these texts (case-insensitive), e.g. New York, Germany, Remote. Two-letter country codes such as US also match the country field.",
+            "editor": "stringList",
+            "default": []
+        },
+        "remoteOnly": {
+            "title": "Remote jobs only",
+            "type": "boolean",
+            "description": "Keep only jobs marked as remote by the ATS or with Remote in the location.",
+            "default": false
+        },
+        "onlyNewSinceDays": {
+            "title": "Posted within (days)",
+            "type": "integer",
+            "description": "Keep only jobs published in the last N days. 0 keeps all jobs. Jobs without a publication date are kept.",
+            "minimum": 0,
+            "default": 0
+        },
+        "maxJobsPerCompany": {
+            "title": "Max jobs per company",
+            "type": "integer",
+            "description": "Maximum number of jobs to return for each career page. 0 means no limit.",
+            "minimum": 0,
+            "default": 0,
+            "prefill": 50
+        },
+        "maxItems": {
+            "title": "Max jobs in total",
+            "type": "integer",
+            "description": "Maximum number of jobs to return in the whole run. You pay only for jobs that are saved.",
+            "minimum": 1,
+            "default": 1000
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Proxy servers to use. The ATS APIs work without a proxy.",
+            "editor": "proxy",
+            "default": { "useApifyProxy": false },
+            "prefill": { "useApifyProxy": false }
+        }
+    },
+    "required": ["companies"]
+}
