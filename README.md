@@ -7,6 +7,7 @@ Apify Actors by [eugene_krabs](https://apify.com/eugene_krabs). Each folder in `
 | [substack-scraper](actors/substack-scraper) | [eugene_krabs/substack-scraper](https://apify.com/eugene_krabs/substack-scraper) | Posts, full text and comments of any Substack newsletter |
 | [workday-jobs-scraper](actors/workday-jobs-scraper) | [eugene_krabs/workday-jobs-scraper](https://apify.com/eugene_krabs/workday-jobs-scraper) | Every job from Workday career sites (myworkdayjobs.com), past the 2000-job search limit |
 | [ats-jobs-scraper](actors/ats-jobs-scraper) | [eugene_krabs/ats-jobs-scraper](https://apify.com/eugene_krabs/ats-jobs-scraper) | Open jobs from career pages on Greenhouse, Lever, Ashby, Workable, Recruitee, SmartRecruiters and Workday |
+| [shopify-app-store-scraper](actors/shopify-app-store-scraper) | [eugene_krabs/shopify-app-store-scraper](https://apify.com/eugene_krabs/shopify-app-store-scraper) | Shopify App Store apps with pricing plans, and merchant reviews with developer replies |
 
 ## Working on an Actor
 

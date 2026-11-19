@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#b3471d"/>
+  <!-- Grid of app tiles -->
+  <rect x="84" y="84" width="150" height="150" rx="34" fill="#fff4ea"/>
+  <rect x="278" y="84" width="150" height="150" rx="34" fill="#fff4ea" opacity="0.55"/>
+  <rect x="84" y="278" width="150" height="150" rx="34" fill="#fff4ea" opacity="0.55"/>
+  <!-- Highlighted tile with a review star -->
+  <rect x="278" y="278" width="150" height="150" rx="34" fill="#ffc14d"/>
+  <path d="M353 300 L369 334 L406 338 L378 363 L386 400 L353 381 L320 400 L328 363 L300 338 L337 334 Z" fill="#b3471d"/>
+  <!-- Plus on the first tile: install an app -->
+  <rect x="149" y="119" width="20" height="80" rx="10" fill="#b3471d"/>
+  <rect x="119" y="149" width="80" height="20" rx="10" fill="#b3471d"/>
+</svg>
