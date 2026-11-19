@@ -261,7 +261,7 @@
                     },
                     "launchedAt": {
                         "label": "Launched",
-                        "format": "date"
+                        "format": "text"
                     }
                 }
             }
@@ -294,7 +294,7 @@
                     },
                     "date": {
                         "label": "Date",
-                        "format": "date"
+                        "format": "text"
                     },
                     "text": {
                         "label": "Review",
