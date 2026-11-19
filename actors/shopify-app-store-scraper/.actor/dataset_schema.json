@@ -1,0 +1,327 @@
+{
+    "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+    "actorSpecification": 1,
+    "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string",
+                "enum": ["app", "review"],
+                "description": "Item type: app or review"
+            },
+            "handle": {
+                "type": "string",
+                "description": "App handle, the last part of its URL (app items)"
+            },
+            "url": {
+                "type": "string",
+                "description": "App Store URL of the app (app items)"
+            },
+            "name": {
+                "type": ["string", "null"],
+                "description": "App name"
+            },
+            "subtitle": {
+                "type": ["string", "null"],
+                "description": "Short subtitle shown in App Store listings"
+            },
+            "introduction": {
+                "type": ["string", "null"],
+                "description": "App introduction"
+            },
+            "headline": {
+                "type": ["string", "null"],
+                "description": "Headline of the app details"
+            },
+            "description": {
+                "type": ["string", "null"],
+                "description": "Full app description, plain text"
+            },
+            "highlights": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Feature highlights listed under the description"
+            },
+            "iconUrl": {
+                "type": ["string", "null"],
+                "description": "App icon URL"
+            },
+            "developer": {
+                "type": ["string", "null"],
+                "description": "Developer name"
+            },
+            "developerUrl": {
+                "type": ["string", "null"],
+                "description": "Developer page in the App Store"
+            },
+            "rating": {
+                "type": ["number", "null"],
+                "description": "Average rating 1-5 for an app, stars of the review for a review"
+            },
+            "reviewCount": {
+                "type": ["integer", "null"],
+                "description": "Number of reviews of the app"
+            },
+            "ratingDistribution": {
+                "type": ["object", "null"],
+                "description": "Number of reviews per star rating, keys 1-5"
+            },
+            "pricingSummary": {
+                "type": ["string", "null"],
+                "description": "Pricing line from the top of the app page, e.g. Free plan available"
+            },
+            "plans": {
+                "type": "array",
+                "description": "Pricing plans",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": ["string", "null"],
+                            "description": "Plan name"
+                        },
+                        "price": {
+                            "type": ["number", "null"],
+                            "description": "Price in currency, 0 for a free plan"
+                        },
+                        "currency": {
+                            "type": ["string", "null"],
+                            "description": "Currency of price"
+                        },
+                        "priceUsd": {
+                            "type": ["number", "null"],
+                            "description": "Price in USD"
+                        },
+                        "period": {
+                            "type": ["string", "null"],
+                            "description": "month, year or one-time"
+                        },
+                        "priceText": {
+                            "type": ["string", "null"],
+                            "description": "Price as shown"
+                        },
+                        "yearlyPriceText": {
+                            "type": ["string", "null"],
+                            "description": "Yearly price offer as shown"
+                        },
+                        "additionalCharges": {
+                            "type": ["string", "null"],
+                            "description": "Extra charges note"
+                        },
+                        "trialDays": {
+                            "type": ["integer", "null"]
+                        },
+                        "features": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Plan features"
+                        }
+                    }
+                }
+            },
+            "categories": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "App Store categories of the app"
+            },
+            "languages": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Languages the app supports"
+            },
+            "worksWith": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Apps and Shopify features the app works with"
+            },
+            "launchedAt": {
+                "type": ["string", "null"],
+                "description": "Launch date, YYYY-MM-DD"
+            },
+            "builtForShopify": {
+                "type": "boolean",
+                "description": "Has the Built for Shopify badge"
+            },
+            "appHandle": {
+                "type": "string",
+                "description": "Handle of the reviewed app (review items)"
+            },
+            "appName": {
+                "type": ["string", "null"],
+                "description": "Name of the reviewed app (review items)"
+            },
+            "reviewId": {
+                "type": "string",
+                "description": "Review ID (review items)"
+            },
+            "reviewUrl": {
+                "type": "string",
+                "description": "Permalink of the review"
+            },
+            "date": {
+                "type": ["string", "null"],
+                "description": "Day the review was posted or last edited, YYYY-MM-DD"
+            },
+            "edited": {
+                "type": "boolean",
+                "description": "The review was edited; date is the edit day"
+            },
+            "text": {
+                "type": ["string", "null"],
+                "description": "Review text, null for a rating-only review"
+            },
+            "storeName": {
+                "type": ["string", "null"],
+                "description": "Name of the merchant's store"
+            },
+            "storeCountry": {
+                "type": ["string", "null"],
+                "description": "Country of the store"
+            },
+            "usageDuration": {
+                "type": ["string", "null"],
+                "description": "How long the store had used the app, e.g. About 1 year using the app"
+            },
+            "developerReply": {
+                "type": ["string", "null"],
+                "description": "Reply of the developer"
+            },
+            "developerReplyDate": {
+                "type": ["string", "null"],
+                "description": "Day of the reply, YYYY-MM-DD"
+            },
+            "scrapedAt": {
+                "type": "string",
+                "description": "When the item was scraped, ISO 8601"
+            }
+        },
+        "required": ["type", "scrapedAt"]
+    },
+    "views": {
+        "overview": {
+            "title": "Apps",
+            "transformation": {
+                "fields": [
+                    "name",
+                    "url",
+                    "developer",
+                    "rating",
+                    "reviewCount",
+                    "pricingSummary",
+                    "categories",
+                    "builtForShopify",
+                    "launchedAt"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "name": {
+                        "label": "App",
+                        "format": "text"
+                    },
+                    "url": {
+                        "label": "URL",
+                        "format": "link"
+                    },
+                    "developer": {
+                        "label": "Developer",
+                        "format": "text"
+                    },
+                    "rating": {
+                        "label": "Rating",
+                        "format": "number"
+                    },
+                    "reviewCount": {
+                        "label": "Reviews",
+                        "format": "number"
+                    },
+                    "pricingSummary": {
+                        "label": "Pricing",
+                        "format": "text"
+                    },
+                    "categories": {
+                        "label": "Categories",
+                        "format": "array"
+                    },
+                    "builtForShopify": {
+                        "label": "Built for Shopify",
+                        "format": "boolean"
+                    },
+                    "launchedAt": {
+                        "label": "Launched",
+                        "format": "text"
+                    }
+                }
+            }
+        },
+        "reviews": {
+            "title": "Reviews",
+            "transformation": {
+                "fields": [
+                    "appName",
+                    "rating",
+                    "date",
+                    "text",
+                    "storeName",
+                    "storeCountry",
+                    "usageDuration",
+                    "developerReply",
+                    "reviewUrl"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "appName": {
+                        "label": "App",
+                        "format": "text"
+                    },
+                    "rating": {
+                        "label": "Stars",
+                        "format": "number"
+                    },
+                    "date": {
+                        "label": "Date",
+                        "format": "text"
+                    },
+                    "text": {
+                        "label": "Review",
+                        "format": "text"
+                    },
+                    "storeName": {
+                        "label": "Store",
+                        "format": "text"
+                    },
+                    "storeCountry": {
+                        "label": "Country",
+                        "format": "text"
+                    },
+                    "usageDuration": {
+                        "label": "Usage",
+                        "format": "text"
+                    },
+                    "developerReply": {
+                        "label": "Developer reply",
+                        "format": "text"
+                    },
+                    "reviewUrl": {
+                        "label": "Link",
+                        "format": "link"
+                    }
+                }
+            }
+        }
+    }
+}

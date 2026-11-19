@@ -1,0 +1,85 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "Shopify App Store Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "apps": {
+            "title": "Apps",
+            "type": "array",
+            "description": "Apps to scrape: App Store URLs (https://apps.shopify.com/judgeme) or handles (judgeme).",
+            "editor": "stringList",
+            "prefill": ["https://apps.shopify.com/judgeme", "https://apps.shopify.com/klaviyo-email-marketing"],
+            "default": []
+        },
+        "categories": {
+            "title": "Categories",
+            "type": "array",
+            "description": "App Store categories to scrape every app from, as URLs (https://apps.shopify.com/categories/marketing-and-conversion-social-trust-product-reviews/all) or slugs. A parent category such as marketing-and-conversion is expanded into all its subcategories.",
+            "editor": "stringList",
+            "default": []
+        },
+        "allApps": {
+            "title": "All apps",
+            "type": "boolean",
+            "description": "Scrape the whole catalog from the App Store sitemap (about 30,000 apps). Set Max apps to 0 to take all of them.",
+            "default": false
+        },
+        "maxApps": {
+            "title": "Max apps",
+            "type": "integer",
+            "description": "Maximum number of apps in the run, from all sources together. 0 means no limit.",
+            "minimum": 0,
+            "default": 100
+        },
+        "includeReviews": {
+            "title": "Include reviews",
+            "type": "boolean",
+            "description": "Scrape merchant reviews of every app, newest first.",
+            "default": true
+        },
+        "maxReviewsPerApp": {
+            "title": "Max reviews per app",
+            "type": "integer",
+            "description": "Maximum number of reviews for each app. 0 means all reviews (popular apps have tens of thousands).",
+            "minimum": 0,
+            "default": 100,
+            "prefill": 20
+        },
+        "reviewsSince": {
+            "title": "Reviews since",
+            "type": "string",
+            "description": "Only reviews posted or edited on this day or later, e.g. 2026-01-31. Leave empty for all. Useful for scheduled monitoring.",
+            "editor": "datepicker",
+            "default": ""
+        },
+        "minRating": {
+            "title": "Min review rating",
+            "type": "integer",
+            "description": "Only reviews with at least this many stars (1-5).",
+            "minimum": 1,
+            "maximum": 5,
+            "default": 1
+        },
+        "maxRating": {
+            "title": "Max review rating",
+            "type": "integer",
+            "description": "Only reviews with at most this many stars (1-5). Set both to 1 and 2 to collect complaints only.",
+            "minimum": 1,
+            "maximum": 5,
+            "default": 5
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Proxy servers to use. The Shopify App Store works without a proxy. Plan prices are shown in the currency of the proxy's country.",
+            "editor": "proxy",
+            "default": {
+                "useApifyProxy": false
+            },
+            "prefill": {
+                "useApifyProxy": false
+            }
+        }
+    }
+}

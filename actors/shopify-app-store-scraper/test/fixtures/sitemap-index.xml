@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://apps.shopify.com/sitemap_apps_de.xml</loc>
+    <lastmod>2026-11-16</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://apps.shopify.com/sitemap_apps_en.xml</loc>
+    <lastmod>2026-11-16</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://apps.shopify.com/sitemap_partners_en.xml</loc>
+    <lastmod>2026-11-16</lastmod>
+  </sitemap>
+</sitemapindex>

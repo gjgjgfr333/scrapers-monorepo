@@ -1,0 +1,20 @@
+{
+    "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+    "actorSpecification": 1,
+    "name": "shopify-app-store-scraper",
+    "title": "Shopify App Store Scraper: Apps, Pricing, Reviews",
+    "description": "Scrape Shopify App Store apps by URL, category or the whole catalog: rating, review count, pricing plans, categories, languages, developer, and merchant reviews with developer replies. Filter reviews by date and stars.",
+    "version": "0.0",
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "ts-crawlee-cheerio",
+        "generatedBy": "Claude Code with Claude Opus 5.5"
+    },
+    "inputSchema": "./input_schema.json",
+    "outputSchema": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json",
+        "keyValueStore": "./key_value_store_schema.json"
+    },
+    "dockerfile": "../Dockerfile"
+}
