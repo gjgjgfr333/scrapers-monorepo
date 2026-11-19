@@ -1,0 +1,70 @@
+{
+    "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+    "actorSpecification": 1,
+    "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "company": { "type": "string", "description": "Company, as the Workday tenant name (e.g. nvidia)" },
+            "legalEntity": { "type": ["string", "null"], "description": "Hiring legal entity from the job page" },
+            "tenant": { "type": "string", "description": "Workday tenant from the URL" },
+            "site": { "type": "string", "description": "Career site ID from the URL" },
+            "jobId": { "type": "string", "description": "Job requisition ID, e.g. JR2027085" },
+            "title": { "type": "string", "description": "Job title" },
+            "url": { "type": "string", "description": "Public URL of the job posting" },
+            "applyUrl": { "type": ["string", "null"], "description": "Application URL" },
+            "location": { "type": ["string", "null"], "description": "Main location" },
+            "additionalLocations": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Other locations of the job"
+            },
+            "country": { "type": ["string", "null"], "description": "Country name" },
+            "countryCode": { "type": ["string", "null"], "description": "Two-letter ISO country code" },
+            "remoteType": {
+                "type": ["string", "null"],
+                "description": "Remote type as the site shows it, e.g. Remote, Hybrid, Office - Flexible"
+            },
+            "workplaceType": {
+                "type": ["string", "null"],
+                "enum": ["onsite", "hybrid", "remote", null],
+                "description": "Workplace type: onsite, hybrid or remote"
+            },
+            "timeType": { "type": ["string", "null"], "description": "full-time or part-time" },
+            "postedAt": { "type": ["string", "null"], "description": "Posting date in ISO 8601 format" },
+            "postedAtApproximate": {
+                "type": "boolean",
+                "description": "True when postedAt comes from \"Posted N Days Ago\" (job details not loaded)"
+            },
+            "postedOn": {
+                "type": ["string", "null"],
+                "description": "Posting date as Workday shows it, e.g. Posted Today"
+            },
+            "applyDeadline": { "type": ["string", "null"], "description": "Last day to apply, when the site sets one" },
+            "descriptionHtml": { "type": ["string", "null"], "description": "Job description as HTML" },
+            "descriptionText": { "type": ["string", "null"], "description": "Job description as plain text" },
+            "scrapedAt": { "type": "string", "description": "When the job was scraped, ISO 8601" }
+        },
+        "required": ["company", "tenant", "site", "jobId", "title", "url", "scrapedAt"]
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": ["company", "title", "location", "workplaceType", "timeType", "postedAt", "url"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "company": { "label": "Company", "format": "text" },
+                    "title": { "label": "Title", "format": "text" },
+                    "location": { "label": "Location", "format": "text" },
+                    "workplaceType": { "label": "Workplace", "format": "text" },
+                    "timeType": { "label": "Time type", "format": "text" },
+                    "postedAt": { "label": "Posted", "format": "date" },
+                    "url": { "label": "URL", "format": "link" }
+                }
+            }
+        }
+    }
+}
