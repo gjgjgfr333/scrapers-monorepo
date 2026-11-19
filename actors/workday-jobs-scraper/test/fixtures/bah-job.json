@@ -1,0 +1,38 @@
+{
+    "jobPostingInfo": {
+        "id": "28643a288244100205391d01477f0000",
+        "title": "GEOINT Imagery Analyst",
+        "jobDescription": "GEOINT Imagery Analyst<p><b><span>The Opportunity:</span></b></p><p>With cloud-based tools, faster GPUs, and the explosion of connected devices, geospatial data has more potential than ever. We’re looking for a skilled geospatial and <span>remote</span> sensing analyst who can turn that data into valuable information. If that sounds like you, we have an opportunity for you to use your geospatial analysis skills to transform our armed forces operating in the USPACOM AOR. </p><p></p><p>As a geospa",
+        "location": "Honolulu, HI",
+        "postedOn": "Posted Today",
+        "startDate": "2026-11-18",
+        "timeType": "Full time",
+        "jobReqId": "R0249350",
+        "jobPostingId": "GEOINT-Imagery-Analyst_R0249350",
+        "jobPostingSiteId": "BAH_Jobs",
+        "country": {
+            "descriptor": "United States of America",
+            "id": "bc33aa3152ec42d4995f4791a106ed09"
+        },
+        "canApply": true,
+        "posted": true,
+        "includeResumeParsing": true,
+        "jobRequisitionLocation": {
+            "descriptor": "USA, HI, Fort Shafter (410 Wisser Road C2F)",
+            "country": {
+                "descriptor": "United States of America",
+                "id": "bc33aa3152ec42d4995f4791a106ed09",
+                "alpha2Code": "US"
+            }
+        },
+        "externalUrl": "https://bah.wd1.myworkdayjobs.com/BAH_Jobs/job/Honolulu-HI/GEOINT-Imagery-Analyst_R0249350",
+        "timeLeftToApply": "30+ days left to apply",
+        "endDate": "2026-12-31",
+        "jobPostingEndDateAsText": "End Date: December 31, 2026"
+    },
+    "hiringOrganization": {
+        "name": "631 Booz Allen Hamilton_United States",
+        "url": ""
+    },
+    "userAuthenticated": false
+}

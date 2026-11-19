@@ -1,0 +1,36 @@
+{
+    "jobPostingInfo": {
+        "id": "bac88d342ace105100e773fda5490000",
+        "title": "Senior Manager, Solution Engineering, Identity",
+        "jobDescription": "<p><b>Your work days are brighter here.</b></p><p></p><p>We’re obsessed with making hard work pay off, for our people, our customers, and the world around us. As a Fortune 500 company and a leading AI platform for managing people, money, and agents, we’re shaping the future of work so teams can reach their potential and focus on what matters most. The minute you join, you’ll feel it. Not just in the products we build, but in how we show up for each other. Our culture is rooted in integrity, empa",
+        "location": "USA, CA, Remote",
+        "additionalLocations": ["USA Remote"],
+        "postedOn": "Posted Today",
+        "startDate": "2026-11-18",
+        "timeType": "Full Time",
+        "jobReqId": "JR-0111783",
+        "jobPostingId": "Senior-Manager--Solution-Engineering--Identity_JR-0111783",
+        "jobPostingSiteId": "Workday",
+        "canApply": true,
+        "posted": true,
+        "includeResumeParsing": true,
+        "jobRequisitionLocation": {
+            "descriptor": "USA, CA, Home Office",
+            "country": {
+                "descriptor": "United States of America",
+                "id": "bc33aa3152ec42d4995f4791a106ed09",
+                "alpha2Code": "US"
+            }
+        },
+        "remoteType": "Remote",
+        "externalUrl": "https://workday.wd5.myworkdayjobs.com/Workday/job/USA-CA-Remote/Senior-Manager--Solution-Engineering--Identity_JR-0111783",
+        "timeLeftToApply": "30+ days left to apply",
+        "endDate": "2026-12-28",
+        "jobPostingEndDateAsText": "End Date: December 28, 2026"
+    },
+    "hiringOrganization": {
+        "name": "Workday, Inc.",
+        "url": ""
+    },
+    "userAuthenticated": false
+}
