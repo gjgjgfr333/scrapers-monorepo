@@ -1,0 +1,345 @@
+{
+    "hotelId": 1593,
+    "hotelInfo": {
+        "name": "Hotel Vendome",
+        "hotelsCountSameCity": 2987,
+        "isShowSeeAllSimilarProperties": true,
+        "isSingleRoom": false,
+        "isNHA": false,
+        "englishName": "Hotel Vendome",
+        "isGetQuestionEnabled": true,
+        "isContactHostActive": true,
+        "shouldShowAccommodationTypeLabel": false,
+        "accommodationType": "Hotel",
+        "isAgMse": false,
+        "locationHighlightMessage": "Inside city center",
+        "awardsAndAccolades": {
+            "text": "Awards and Accolades\n"
+        },
+        "engagement": {
+            "peopleLooking": "",
+            "todayBooking": "Booked 6 times today",
+            "hasBookingHistory": false
+        },
+        "starRating": {
+            "tooltip": "Gold star ratings are provided by the property to reflect the comfort, facilities, and amenities you can expect.",
+            "icon": "ficon-star-3",
+            "iconColor": "orange-yellow",
+            "value": 3.0
+        },
+        "address": {
+            "countryId": 153,
+            "full": "26 Rue Pastorelli, Nice City Center, Nice, France, 06000",
+            "cityName": "Nice",
+            "cityId": 5277,
+            "countryName": "France",
+            "areaName": "Nice City Center",
+            "address": "26 Rue Pastorelli",
+            "postalCode": "06000"
+        },
+        "supplierId": 332,
+        "hasHostExperience": false,
+        "isContainBookOnRequest": false,
+        "genericBadge": {
+            "badgeId": 0
+        }
+    },
+    "reviews": {
+        "scoreText": "Excellent",
+        "score": "8.5",
+        "basedOnProviderId": 332,
+        "basedOn": "Based on <strong>247 reviews</strong>",
+        "reviewsCount": 247,
+        "recommendationScore": 96,
+        "isShowRecommendationScore": true,
+        "isReviewPage": false,
+        "hotelReviewsOptions": {
+            "hotelProviderId": 332,
+            "isMobile": false,
+            "isCrawlable": true,
+            "isReviewPage": false,
+            "memberId": 0
+        },
+        "displayLanguageId": 1,
+        "reviewsContainerSelector": "div[data-hotelreview]",
+        "providerList": "332,3038",
+        "demographic": {
+            "reviewProviderLogos": [
+                {
+                    "providerId": 332,
+                    "logoUrl": "https://cdn6.agoda.net/images/default/agoda-logo-review.png",
+                    "logoName": "agoda",
+                    "logoAltText": "Agoda"
+                }
+            ],
+            "score": 8.5,
+            "maxScore": 10.0,
+            "id": 0,
+            "count": 247,
+            "providerId": 332,
+            "cityAverageText": "Average rating for 3 star properties in Nice",
+            "formattedScore": "8.5",
+            "name": "All guests",
+            "reviewProviderLogoText": "Provided by verified guests of",
+            "scoreText": "Excellent",
+            "subReview": {
+                "score": "8.7",
+                "text": "Excellent service",
+                "name": "Service"
+            },
+            "grades": [
+                {
+                    "id": "cleanliness",
+                    "name": "Cleanliness",
+                    "score": 8.6,
+                    "formattedScore": "8.6",
+                    "scale": 10.0,
+                    "percentage": 86.0,
+                    "scoreText": "Excellent",
+                    "progressBarScoreStyle": "86.0",
+                    "cityAverage": 7.5,
+                    "uid": "cleanliness-8.6-2",
+                    "subGrades": []
+                },
+                {
+                    "id": "facilities",
+                    "name": "Facilities",
+                    "score": 7.9,
+                    "formattedScore": "7.9",
+                    "scale": 10.0,
+                    "percentage": 79.0,
+                    "scoreText": "Very good",
+                    "progressBarScoreStyle": "79.0",
+                    "cityAverage": 7.2,
+                    "uid": "facilities-7.9-2",
+                    "subGrades": []
+                },
+                {
+                    "id": "location",
+                    "name": "Location",
+                    "score": 9.1,
+                    "formattedScore": "9.1",
+                    "scale": 10.0,
+                    "percentage": 91.0,
+                    "scoreText": "Exceptional",
+                    "progressBarScoreStyle": "91.0",
+                    "cityAverage": 8.0,
+                    "uid": "location-9.1-19",
+                    "subGrades": []
+                },
+                {
+                    "id": "roomComfort",
+                    "name": "Room comfort and quality",
+                    "score": 8.0,
+                    "formattedScore": "8.0",
+                    "scale": 10.0,
+                    "percentage": 80.0,
+                    "scoreText": "Excellent",
+                    "progressBarScoreStyle": "80.0",
+                    "cityAverage": 7.2,
+                    "uid": "roomComfort-8.0-24",
+                    "subGrades": []
+                },
+                {
+                    "id": "staffPerformance",
+                    "name": "Service",
+                    "score": 8.7,
+                    "formattedScore": "8.7",
+                    "scale": 10.0,
+                    "percentage": 87.0,
+                    "scoreText": "Excellent",
+                    "progressBarScoreStyle": "87.0",
+                    "cityAverage": 7.7,
+                    "uid": "staffPerformance-8.7-4",
+                    "subGrades": []
+                },
+                {
+                    "id": "valueForMoney",
+                    "name": "Value for money",
+                    "score": 8.4,
+                    "formattedScore": "8.4",
+                    "scale": 10.0,
+                    "percentage": 84.0,
+                    "scoreText": "Excellent",
+                    "progressBarScoreStyle": "84.0",
+                    "cityAverage": 7.4,
+                    "uid": "valueForMoney-8.4-0",
+                    "subGrades": []
+                }
+            ],
+            "scoreDistribution": [
+                {
+                    "id": "exceptional",
+                    "scoreText": "9+ Exceptional",
+                    "count": 110
+                },
+                {
+                    "id": "excellent",
+                    "scoreText": "8-9 Excellent",
+                    "count": 51
+                },
+                {
+                    "id": "very_good",
+                    "scoreText": "7-8 Very Good",
+                    "count": 18
+                },
+                {
+                    "id": "good",
+                    "scoreText": "6-7 Good",
+                    "count": 17
+                },
+                {
+                    "id": "below_expectation",
+                    "scoreText": "<6 Below Expectation",
+                    "count": 15
+                }
+            ]
+        }
+    },
+    "aboutHotel": {
+        "hotelDesc": {
+            "overview": "<b><b>Hotel Vendome</b>: A Charming Stay in the Heart of Nice</b><br><br>Welcome to <b>Hotel Vendome</b>, a delightful 3-star hotel nestled in the vibrant city of Nice, France. With its prime location and a host of amenities, <b>Hotel Vendome</b> offers a charming and comfortable stay for both leisure and business travelers. With 56 well-appointed rooms, a convenient check-in/out time, and a child-friendly policy, this hotel is the perfect choice for your next visit to the French Riviera.\n\nAs you step into <b>Hotel Vendome</b>, you'll immediately be captivated by its warm and inviting ambiance. The hotel exudes a classic charm, blending traditional French elegance with modern comforts. The friendly and attentive staff will ensure that your every need is met, making your stay truly memorable.\n\nWith 56 tastefully decorated rooms, <b>Hotel Vendome</b> offers a range of accommodations to suit every traveler's needs. Each room is thoughtfully designed with comfort in mind, featuring plush bedding, modern amenities, and a soothing color palette. Whether you're traveling solo, with a partner, or with your family, you'll find the perfect room to relax and unwind after a day of exploring the city.<br><br><b>Unwind and Indulge in <b>Hotel Vendome</b>'s Entertainment Facilities</b><br><br><b>Hotel Vendome</b> in Nice, France, offers a plethora of entertainment facilities to ensure a memorable and enjoyable stay for its guests. Whether you are looking to unwind with a refreshing drink or engage in lively conversations, the hotel's bar is the perfect spot. With its cozy ambiance and extensive drink menu, the bar provides a relaxing atmosphere to socialize and create lasting memories.\n\nFor those seeking a shared space to relax and catch up on their favorite shows or sports events, <b>Hotel Vendome</b> offers a comfortable shared lounge/TV area. Sink into plush sofas and immerse yourself in the latest movies or cheer for your favorite team on the big screen. This communal space allows guests to connect with fellow travelers while indulging in their entertainment preferences.\n\nTo commemorate your stay in Nice, don't forget to visit the hotel's gift/souvenir shop. Here, you can find a wide array of unique and locally crafted souvenirs to take home as a memento of your time in the city. From handcrafted trinkets to exquisite artworks, the shop offers a treasure trove of keepsakes to cherish and share with loved ones.\n\n<b>Hotel Vendome</b> goes above and beyond to provide an array of entertainment facilities that cater to various preferences and ensure a delightful stay in Nice. Whether you prefer a laid-back evening at the bar, cozying up in the shared lounge, or finding the perfect souvenir, <b>Hotel Vendome</b> has you covered.<br><br><b>Convenience Facilities at <b>Hotel Vendome</b></b><br><br><b>Hotel Vendome</b> in Nice, France, offers an array of convenience facilities to ensure a comfortable and hassle-free stay for its guests. With a laundry service and laundromat on-site, guests can easily take care of their laundry needs without leaving the hotel. The dry cleaning service is also available for those who require professional cleaning for their garments. \n\nThe concierge at <b>Hotel Vendome</b> is always ready to assist guests with any requests or recommendations they may need during their stay. Whether it's arranging transportation, booking tickets to attractions, or suggesting the best local restaurants, the concierge is dedicated to providing exceptional service. \n\nFor guests who need to stay connected, <b>Hotel Vendome</b> offers free Wi-Fi in all rooms and public areas. Whether you need to catch up on work or stay in touch with loved ones, you can enjoy seamless internet access throughout your stay. Additionally, the hotel has express check-in/check-out services, ensuring a quick and efficient process for guests. Luggage storage is also available, allowing guests to explore the city without worrying about their belongings. \n\nLastly, <b>Hotel Vendome</b> provides a designated smoking area for guests who smoke, ensuring a comfortable environment for everyone. With these convenience facilities, <b>Hotel Vendome</b> aims to provide a convenient and enjoyable experience for all its guests.<br><br><b>Convenient Transport Facilities at <b>Hotel Vendome</b></b><br><br><b>Hotel Vendome</b> in Nice, France, offers a range of transport facilities to ensure a seamless and hassle-free stay for its guests. The hotel provides a convenient ticket service, allowing guests to easily book tickets for local attractions, tours, and events. Whether you're looking to explore the stunning French Riviera or attend a cultural event in the city, the ticket service at <b>Hotel Vendome</b> has got you covered.\n\nIn addition, <b>Hotel Vendome</b> offers an onsite car park for guests who prefer to travel by car. With the car park located on the premises, guests can enjoy the convenience of having their vehicle close by and easily accessible. However, please note that car park charges are applied. This ensures that your vehicle is safely parked while you explore the beautiful city of Nice and its surroundings. Whether you're planning to visit the famous Promenade des Anglais or explore the charming Old Town, <b>Hotel Vendome</b>'s car park provides a secure and convenient option for your transportation needs.<br><br><b>Luxurious Room Facilities at <b>Hotel Vendome</b></b><br><br><b>Hotel Vendome</b> in Nice, France offers a range of luxurious room facilities that will make your stay truly unforgettable. Each room is equipped with state-of-the-art amenities to ensure your comfort and convenience throughout your stay.\n\nStep into your room and feel the cool breeze of the air conditioning, providing a refreshing escape from the warm Mediterranean climate. After a long day of exploring the city, unwind and relax in the plush bathrobes, allowing you to fully indulge in the tranquility of your private oasis.\n\nIn the morning, get ready for the day ahead with the help of the hair dryer provided in your room. Whether you're attending a business meeting or exploring the vibrant streets of Nice, you'll always look your best. Stay entertained with the television and satellite/cable TV, offering a wide selection of channels to suit your preferences. For those seeking refreshments, the mini bar is fully stocked with a variety of beverages and snacks to satisfy your cravings. <b>Hotel Vendome</b> ensures that all your needs are met, providing an exceptional level of comfort and convenience throughout your stay.<br><br><b>Indulge in a Delicious Breakfast Buffet at <b>Hotel Vendome</b></b><br><br>Start your day off right with a mouthwatering breakfast buffet at <b>Hotel Vendome</b> in Nice, France. Our dining facilities offer a wide array of delectable options to satisfy every palate. Whether you prefer a hearty English breakfast, a continental spread, or a selection of local French delicacies, our buffet has something for everyone. \n\nImagine waking up to the aroma of freshly brewed coffee, warm croissants, and a variety of freshly squeezed juices. At <b>Hotel Vendome</b>, we believe that breakfast is the most important meal of the day, and we strive to provide our guests with a memorable dining experience. Indulge in a selection of freshly baked pastries, seasonal fruits, cereals, yogurts, and a range of hot and cold dishes. Our friendly staff is always on hand to assist you and ensure that your breakfast is nothing short of exceptional.<br><br><b>Comfortable and Versatile Rooms at <b>Hotel Vendome</b></b><br><br><b>Hotel Vendome</b> in Nice, France, offers a range of comfortable and versatile rooms to suit every traveler's needs. Whether you are traveling alone, with a partner, or in a group, there is a room type that will cater to your requirements.\n\nThe Double Room at <b>Hotel Vendome</b> is perfect for couples or solo travelers looking for a cozy and intimate space. With a comfortable Double Bed and 12 square meters of space, this room offers a peaceful retreat after a day of exploring the beautiful city of Nice.\n\nFor larger groups or families, the Quad Duplex is an excellent choice. With 15 square meters of space and two Double Beds, this room provides ample room for everyone to relax and unwind. The spacious layout ensures that everyone can enjoy their own privacy while still being in close proximity.\n\nSolo travelers will find the Single Room ideal for their stay. With 10 square meters of space and a comfortable Single Bed, this room offers a cozy and inviting atmosphere.\n\nThe Triple Room is perfect for friends or small families traveling together. With 15 square meters of space and three Single Beds, this room provides a comfortable and convenient stay for everyone.\n\nIf you prefer separate beds, the Twin Room is a great option. With 13 square meters of space and two Single Beds, this room offers a comfortable and relaxing environment for your stay.\n\nBooking these wonderful rooms at <b>Hotel Vendome</b> through Agoda ensures that you get the best prices and a hassle-free experience. Agoda offers competitive rates, allowing you to enjoy your stay at <b>Hotel Vendome</b> without breaking the bank. With Agoda's user-friendly platform, you can easily browse and book your preferred room type, making the booking process quick and convenient. So why wait? Book your stay at <b>Hotel Vendome</b> through Agoda today and experience the best of Nice, France.<br><br><b>Experience the Vibrant Charm of Nice City Center</b><br><br>Nestled in the heart of Nice, France, <b>Hotel Vendome</b> offers an unparalleled experience in the lively and picturesque Nice City Center. With its prime location, guests can immerse themselves in the vibrant charm of this captivating city.\n\nStep outside the hotel's doorstep and find yourself surrounded by a myriad of attractions and activities. Take a leisurely stroll along the famous Promenade des Anglais, a stunning waterfront promenade that stretches for miles, offering breathtaking views of the Mediterranean Sea. Explore the narrow, winding streets of the Old Town, known as Vieux Nice, where you'll encounter colorful buildings, bustling markets, and charming cafes. Indulge in some retail therapy at the luxury boutiques and department stores on Avenue Jean Médecin, or soak up the sun on the beautiful beaches just a stone's throw away.\n\nFood enthusiasts will be delighted by the culinary delights that await in Nice City Center. From traditional French cuisine to international flavors, the area is a gastronomic paradise. Sample the local specialties such as socca, a savory chickpea pancake, or try the famous Niçoise salad made with fresh, local ingredients. In the evenings, the city comes alive with vibrant nightlife, offering a plethora of bars, clubs, and live music venues to suit every taste.\n\nWhether you're seeking cultural immersion, relaxation, or exciting adventures, Nice City Center has it all. <b>Hotel Vendome</b> provides the perfect base for exploring this enchanting destination, ensuring an unforgettable stay for all guests.<br><br><b>Convenient Transportation from the Airport to <b>Hotel Vendome</b> in Nice City Center</b><br><br>When arriving at the nearest airport to Nice, France, travelers can easily reach <b>Hotel Vendome</b> in Nice City Center with a variety of transportation options. The most convenient and time-efficient way to get to the hotel is by taking a taxi or a private car service. Taxis are readily available at the airport and offer a hassle-free journey directly to the hotel. Alternatively, travelers can pre-book a private car service for a more personalized and comfortable experience. The journey from the airport to <b>Hotel Vendome</b> takes approximately 15-20 minutes, depending on traffic conditions.\n\nFor those looking for a more budget-friendly option, public transportation is also available. Nice has an efficient public transportation system, including buses and trams. From the airport, travelers can take the bus or tram to reach the city center. The nearest tram stop to <b>Hotel Vendome</b> is Massena, which is just a short walk away from the hotel. Buses and trams are a great way to experience the local atmosphere and get a glimpse of the city while heading to the hotel.\n\n<b>Hotel Vendome</b>'s prime location in Nice City Center makes it easily accessible from the airport, allowing travelers to start their stay in Nice without any hassle. Whether you choose a taxi, private car service, or public transportation, getting to <b>Hotel Vendome</b> is a breeze, ensuring a smooth and enjoyable start to your stay in this beautiful city.<br><br><b>Discover the Rich Cultural Heritage near <b>Hotel Vendome</b></b><br><br><b>Hotel Vendome</b> is nestled in the heart of Nice, surrounded by an array of captivating landmarks and attractions that showcase the city's rich cultural heritage. Just a stone's throw away, you will find the majestic Castle Hill of Nice, offering panoramic views of the city and the sparkling Mediterranean Sea. Take a leisurely stroll through the enchanting gardens and soak in the breathtaking scenery.\n\nFor art enthusiasts, the Marc Chagall National Museum is a must-visit destination. Immerse yourself in the vibrant world of Chagall's masterpieces, showcasing his unique blend of colors and symbolism. Another notable attraction nearby is the Musée d'Art Moderne et d'Art Contemporain, where you can explore a diverse collection of contemporary artworks that push the boundaries of creativity.\n\nStep into the heart of Nice's historic center by visiting Place Massena, a bustling square adorned with stunning architecture and vibrant fountains. Delve into the city's religious history at the Cathedrale Sainte-Reparate, an exquisite Baroque church that boasts intricate details and a serene ambiance. Indulge in the local flavors and soak up the lively atmosphere at Place Rossetti, a charming square lined with quaint cafes and gelato shops.\n\nFor those seeking a glimpse into Nice's aristocratic past, Palais Lascaris is a hidden gem. This 17th-century palace-turned-museum showcases opulent interiors and a vast collection of musical instruments. Nature lovers will appreciate the tranquility of Le Jardin Albert 1er, a serene park filled with lush greenery and vibrant flowers.\n\nLastly, immerse yourself in the vibrant atmosphere of Place Saint-Francois, a bustling square known for its lively market. Explore the stalls filled with fresh produce, local delicacies, and unique souvenirs, providing a true taste of the local culture.\n\nWith its unbeatable location, <b>Hotel Vendome</b> offers easy access to these remarkable landmarks and attractions, ensuring an unforgettable stay in Nice, France.<br><br><b>Conveniently Located near Nice-Riquier Train Station</b><br><br><b>Hotel Vendome</b> is ideally situated just a stone's throw away from the bustling Nice-Riquier Train Station. This prime location offers guests easy access to explore the beautiful city of Nice and its surrounding areas. Whether you're arriving or departing from the station, the hotel's proximity ensures a hassle-free travel experience. \n\nThe Nice-Riquier Train Station is a major transportation hub, connecting visitors to various destinations across France and beyond. From here, you can easily catch a train to popular cities like Cannes, Monaco, and Marseille, allowing you to embark on exciting day trips and explore the French Riviera at your own pace. Additionally, the station is well-connected to the rest of Nice, making it convenient to visit attractions such as the vibrant Old Town, the stunning Promenade des Anglais, and the charming Cours Saleya market. With the train station just a short walk away, <b>Hotel Vendome</b> is the perfect base for both leisure and business travelers seeking to make the most of their time in Nice.<br><br><b>A Culinary Delight: Indulge in the Surrounding Restaurants</b><br><br>When it comes to dining options, <b>Hotel Vendome</b> is surrounded by an array of fantastic restaurants that will satisfy every palate. Just a stone's throw away, you'll find la maison de marie, a charming eatery known for its traditional French cuisine and warm ambiance. For a taste of local specialties, head to Chez René Socca, where you can savor the famous socca, a traditional Niçoise pancake made from chickpea flour. Les Sens is another nearby gem, offering a fusion of Mediterranean and Asian flavors in a stylish setting. If you're in the mood for Italian cuisine, Paneolio is the place to be, serving up delicious pizzas and pastas with a modern twist. For a cozy and intimate dining experience, Geppetto is a must-visit, known for its authentic Italian dishes and friendly service. Les Agitateurs is a trendy spot that combines a vibrant atmosphere with innovative French cuisine, while Restaurant JAN offers a Michelin-star dining experience with its creative and refined dishes. If you're craving Japanese cuisine, AO HOUSE RESTAURANT JAPONAIS is the perfect choice, offering a wide selection of sushi, sashimi, and other Japanese delicacies. Finally, for those seeking a taste of traditional Italian recipes passed down through generations, L'Antica is a hidden gem that will transport you to the heart of Italy. With such a diverse range of dining options right on your doorstep, <b>Hotel Vendome</b> is the perfect base for food lovers looking to explore the culinary delights of Nice.<br><br><b>Shop 'til you drop at <b>Hotel Vendome</b>'s surrounding shopping landmarks</b><br><br>Located in the heart of Nice, <b>Hotel Vendome</b> is surrounded by a plethora of shopping landmarks that will satisfy even the most avid shopaholics. Just a stone's throw away from the hotel, you'll find the vibrant Fish Market, where you can browse through an array of fresh seafood and local produce. For those looking for high-end fashion, Nina Transfeld Couture and Double Noeud are must-visit destinations, offering exquisite designs and impeccable craftsmanship. If you're in search of unique and handmade items, Marche aux Poissons and VIGNES are the perfect spots to discover one-of-a-kind treasures. For the fashion-forward, Mistercanne and Maison 432 showcase the latest trends in clothing and accessories. Don't forget to stop by Zoe la Belette, a charming boutique filled with whimsical gifts and home decor. And for all your everyday needs, Monoprix is conveniently located nearby. Last but certainly not least, indulge your sweet tooth at Chocolaterie JP PACI, where you can sample delectable chocolates and treats. With such a diverse range of shopping options just steps away, <b>Hotel Vendome</b> is the perfect base for a memorable shopping spree in Nice.<br><br><b>Affordable Luxury at <b>Hotel Vendome</b> in Nice</b><br><br><b>Hotel Vendome</b> offers a delightful blend of elegance and affordability, making it the perfect choice for travelers seeking a memorable stay in Nice, France. With an average room price of just $151, <b>Hotel Vendome</b> provides exceptional value for money, especially when compared to the city's average room price of $238.\n\nDespite its budget-friendly rates, <b>Hotel Vendome</b> does not compromise on quality. Each room is tastefully decorated with modern furnishings and boasts a range of amenities to ensure a comfortable stay. Guests can indulge in a restful night's sleep on plush beds, enjoy the convenience of complimentary Wi-Fi, and relax in private bathrooms with luxurious toiletries.\n\nIn addition to its attractive pricing, <b>Hotel Vendome</b>'s prime location in the heart of Nice adds to its allure. Guests are just a short stroll away from the vibrant Promenade des Anglais, where they can soak up the sun on the iconic pebble beach or explore the charming Old Town with its narrow winding streets and bustling markets. With its unbeatable combination of affordability, luxury, and prime location, <b>Hotel Vendome</b> is a top choice for travelers looking to make the most of their stay in Nice.<br><br><b>Lovely staff, good breakfast, and great location</b><br><br><b>Hotel Vendome</b> in Nice, France has received rave reviews from its satisfied guests. With its lovely and accommodating staff, guests felt welcomed and well taken care of throughout their stay. The hotel's breakfast was also praised for its quality and variety. Guests mentioned that they would happily stay at <b>Hotel Vendome</b> again, and would definitely recommend it to others. \n\nOne of the standout features of <b>Hotel Vendome</b> is its excellent location. Situated close to the center of Nice, the coast, and the train station, guests found it convenient to explore the city and its surroundings. Whether guests wanted to stroll along the beach, visit the charming Old Town, or take day trips to nearby attractions, the hotel's location made it easy to access all these places. \n\nIn addition to the friendly staff and great location, guests also appreciated the small and cozy atmosphere of <b>Hotel Vendome</b>. Despite its size, the hotel still managed to offer excellent service and attention to detail. Special mention was made of Marcela, a staff member who went above and beyond to ensure a pleasant stay for guests. She not only helped with early check-in but also offered a free room upgrade when a triple room was not available. Overall, guests loved their stay at <b>Hotel Vendome</b> and highly praised the staff, breakfast, and location.<br><br><b>A Delightful Stay at <b>Hotel Vendome</b> in Nice</b><br><br><b>Hotel Vendome</b> in Nice, France, has garnered positive customer reviews across various aspects of its offerings. With an impressive overall rating of 8.3, this charming hotel has left guests thoroughly satisfied with their stay. The hotel's excellent value for money, with a rating of 8.2, ensures that guests can enjoy a comfortable and memorable experience without breaking the bank.\n\nOne of the standout features of <b>Hotel Vendome</b> is its exceptional cleanliness, scoring an impressive 8.5. Guests can expect immaculate rooms and common areas, ensuring a pleasant and hygienic stay. Additionally, the hotel's prime location, rated at 8.7, is another highlight. Situated in the heart of Nice, guests have easy access to the city's vibrant attractions, picturesque beaches, and bustling shopping districts, making it an ideal choice for both leisure and business travelers.\n\n<b>Hotel Vendome</b>'s staff performance, rated at 8.4, is highly commendable. The friendly and attentive staff go above and beyond to ensure that guests feel welcomed and well taken care of throughout their stay. From providing helpful local recommendations to assisting with any requests, the hotel's staff adds an extra touch of warmth and hospitality to the overall experience. With comfortable rooms and a range of excellent amenities, <b>Hotel Vendome</b> is a top choice for travelers seeking a delightful stay in Nice.",
+            "snippet": "",
+            "hotelFormerName": ""
+        },
+        "translatedHotelName": "Hotel Vendome"
+    },
+    "mapParams": {
+        "latlng": [43.700801849365234, 7.271229267120361]
+    },
+    "featuresYouLove": {
+        "title": "Things you'll love",
+        "features": [
+            {
+                "icon": "ficon-train-new",
+                "text": "860 meters to public transportation",
+                "images": [],
+                "tooltip": {
+                    "items": ["Nice-Ville Train Station is within 860 meters"],
+                    "isShowAsBullet": false
+                },
+                "id": 73555
+            },
+            {
+                "icon": "ficon-beach",
+                "text": "670 meters to the beach",
+                "images": [],
+                "tooltip": {
+                    "items": [],
+                    "isShowAsBullet": false
+                },
+                "id": 287
+            },
+            {
+                "icon": "ficon-wifi",
+                "text": "Free Wi-Fi in all rooms!",
+                "images": [],
+                "tooltip": {
+                    "items": [],
+                    "isShowAsBullet": false
+                },
+                "id": 109
+            },
+            {
+                "icon": "ficon-air-conditioning",
+                "text": "Air conditioning",
+                "images": [],
+                "tooltip": {
+                    "items": [],
+                    "isShowAsBullet": false
+                },
+                "id": 25
+            }
+        ],
+        "isFamily": false
+    },
+    "searchbox": {
+        "config": {
+            "defaultSearchURL": "/hotel-vendome/hotel/nice-fr.html?checkIn=2026-11-20&los=1&adults=2&rooms=1&travellerType=-1"
+        }
+    },
+    "mosaicInitData": {
+        "images": [
+            {
+                "id": "126394862",
+                "title": "",
+                "location": "//pix8.agoda.net/hotelImages/1593/0/15329df4e33a98f2788cc514179ee192.jpeg?va=1&ce=3&s=1024x768",
+                "locationMediumRectangle": "//pix8.agoda.net/hotelImages/1593/0/15329df4e33a98f2788cc514179ee192.jpeg?va=1&ce=3&s=512x384",
+                "locationWithWideSize": "",
+                "locationWithSquareSize": "//pix8.agoda.net/hotelImages/1593/0/15329df4e33a98f2788cc514179ee192.jpeg?va=1&ce=3&s=98x98&ar=1x1",
+                "locationWithSquareSize2X": "//pix8.agoda.net/hotelImages/1593/0/15329df4e33a98f2788cc514179ee192.jpeg?va=1&ce=3&s=196x196&ar=1x1",
+                "group": "Property views",
+                "groupId": "property",
+                "groupEntityId": 0,
+                "orderIndex": 0,
+                "isRoomImage": false,
+                "providerId": 332,
+                "isLocationHd": true
+            },
+            {
+                "id": "81766038",
+                "title": "Quad Duplex - Bathroom",
+                "location": "//pix8.agoda.net/hotelImages/1593/3564684/04753e3cfe8d398d7eba955ce97e267e.jpeg?va=1&ce=3&s=1024x768",
+                "locationMediumRectangle": "//pix8.agoda.net/hotelImages/1593/3564684/04753e3cfe8d398d7eba955ce97e267e.jpeg?va=1&ce=3&s=512x384",
+                "locationWithWideSize": "",
+                "locationWithSquareSize": "//pix8.agoda.net/hotelImages/1593/3564684/04753e3cfe8d398d7eba955ce97e267e.jpeg?va=1&ce=3&s=98x98&ar=1x1",
+                "locationWithSquareSize2X": "//pix8.agoda.net/hotelImages/1593/3564684/04753e3cfe8d398d7eba955ce97e267e.jpeg?va=1&ce=3&s=196x196&ar=1x1",
+                "group": "Rooms",
+                "groupId": "room",
+                "groupEntityId": 0,
+                "orderIndex": 1,
+                "isRoomImage": true,
+                "providerId": 332,
+                "isLocationHd": true
+            },
+            {
+                "id": "1203951948",
+                "title": "Bar/lounge",
+                "location": "//q-xx.bstatic.com/xdata/images/hotel/max1024x768/804649316.jpg?k=a57ebfd63c3a146381aff414df5130b8dd9c1891a31c64b63049c6a916191252&o=",
+                "locationMediumRectangle": "//q-xx.bstatic.com/xdata/images/hotel/max1024x768/804649316.jpg?k=a57ebfd63c3a146381aff414df5130b8dd9c1891a31c64b63049c6a916191252&o=",
+                "locationWithWideSize": "",
+                "locationWithSquareSize": "//q-xx.bstatic.com/xdata/images/hotel/max300/804649316.jpg?k=a57ebfd63c3a146381aff414df5130b8dd9c1891a31c64b63049c6a916191252&o=",
+                "locationWithSquareSize2X": "//q-xx.bstatic.com/xdata/images/hotel/max300/804649316.jpg?k=a57ebfd63c3a146381aff414df5130b8dd9c1891a31c64b63049c6a916191252&o=",
+                "group": "Facilities",
+                "groupId": "facility",
+                "groupEntityId": 0,
+                "orderIndex": 2,
+                "isRoomImage": false,
+                "providerId": 3038,
+                "isLocationHd": true
+            },
+            {
+                "id": "1203951949",
+                "title": "Entrance",
+                "location": "//q-xx.bstatic.com/xdata/images/hotel/max1024x768/804648785.jpg?k=6aea8f3a354cf66ea0ca0930f22a90c8df43b1038282d6e437a2c4e4f6342bd0&o=",
+                "locationMediumRectangle": "//q-xx.bstatic.com/xdata/images/hotel/max1024x768/804648785.jpg?k=6aea8f3a354cf66ea0ca0930f22a90c8df43b1038282d6e437a2c4e4f6342bd0&o=",
+                "locationWithWideSize": "",
+                "locationWithSquareSize": "//q-xx.bstatic.com/xdata/images/hotel/max300/804648785.jpg?k=6aea8f3a354cf66ea0ca0930f22a90c8df43b1038282d6e437a2c4e4f6342bd0&o=",
+                "locationWithSquareSize2X": "//q-xx.bstatic.com/xdata/images/hotel/max300/804648785.jpg?k=6aea8f3a354cf66ea0ca0930f22a90c8df43b1038282d6e437a2c4e4f6342bd0&o=",
+                "group": "Property views",
+                "groupId": "property",
+                "groupEntityId": 0,
+                "orderIndex": 3,
+                "isRoomImage": false,
+                "providerId": 3038,
+                "isLocationHd": true
+            },
+            {
+                "id": "1203951955",
+                "title": "Food and beverages",
+                "location": "//q-xx.bstatic.com/xdata/images/hotel/max1024x768/804656194.jpg?k=e07122108fa76a8929f024488fe3113f0dfa179f08dc53462a2427dd318f46b6&o=",
+                "locationMediumRectangle": "//q-xx.bstatic.com/xdata/images/hotel/max1024x768/804656194.jpg?k=e07122108fa76a8929f024488fe3113f0dfa179f08dc53462a2427dd318f46b6&o=",
+                "locationWithWideSize": "",
+                "locationWithSquareSize": "//q-xx.bstatic.com/xdata/images/hotel/max300/804656194.jpg?k=e07122108fa76a8929f024488fe3113f0dfa179f08dc53462a2427dd318f46b6&o=",
+                "locationWithSquareSize2X": "//q-xx.bstatic.com/xdata/images/hotel/max300/804656194.jpg?k=e07122108fa76a8929f024488fe3113f0dfa179f08dc53462a2427dd318f46b6&o=",
+                "group": "Dining",
+                "groupId": "dining",
+                "groupEntityId": 0,
+                "orderIndex": 4,
+                "isRoomImage": false,
+                "providerId": 3038,
+                "isLocationHd": true
+            }
+        ]
+    }
+}

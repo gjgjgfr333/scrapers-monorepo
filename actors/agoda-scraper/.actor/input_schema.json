@@ -1,0 +1,78 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "Agoda Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Hotel URLs",
+            "type": "array",
+            "description": "Agoda hotel pages, e.g. https://www.agoda.com/marina-bay-sands/hotel/singapore-sg.html. Any language version and any search parameters work.",
+            "editor": "stringList",
+            "prefill": ["https://www.agoda.com/hotel-vendome/hotel/nice-fr.html"]
+        },
+        "hotelIds": {
+            "title": "Hotel IDs",
+            "type": "array",
+            "description": "Numeric Agoda hotel ids (the hotel_id in Agoda links), as an alternative to URLs.",
+            "editor": "stringList",
+            "default": []
+        },
+        "includeReviews": {
+            "title": "Include reviews",
+            "type": "boolean",
+            "description": "Collect guest reviews of each hotel. Turn off to get only hotel details.",
+            "default": true
+        },
+        "maxReviewsPerHotel": {
+            "title": "Max reviews per hotel",
+            "type": "integer",
+            "description": "Maximum number of reviews to save for each hotel. 0 means all reviews Agoda returns.",
+            "minimum": 0,
+            "default": 100,
+            "prefill": 50
+        },
+        "reviewsSince": {
+            "title": "Reviews since",
+            "type": "string",
+            "description": "Save only reviews written on or after this date (YYYY-MM-DD). Useful for scheduled monitoring runs.",
+            "editor": "datepicker",
+            "default": ""
+        },
+        "providers": {
+            "title": "Review sources",
+            "type": "array",
+            "description": "Which reviews to save. Agoda shows its own guest reviews and reviews from Booking.com on the same hotel page.",
+            "editor": "select",
+            "items": {
+                "type": "string",
+                "enum": ["agoda", "booking", "other"],
+                "enumTitles": ["Agoda", "Booking.com", "Other sources"]
+            },
+            "default": ["agoda", "booking", "other"]
+        },
+        "sort": {
+            "title": "Sort reviews by",
+            "type": "string",
+            "description": "Order in which Agoda returns reviews. With a review limit, this decides which reviews you get.",
+            "editor": "select",
+            "enum": ["newest", "highest", "lowest", "helpful"],
+            "enumTitles": ["Newest first", "Highest rating first", "Lowest rating first", "Most helpful first"],
+            "default": "newest"
+        },
+        "includeReviewerName": {
+            "title": "Include reviewer first name",
+            "type": "boolean",
+            "description": "Add the first name the reviewer shows on Agoda. This is personal data, keep it off unless you need it.",
+            "default": false
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Proxy servers to use. Agoda usually works without a proxy.",
+            "editor": "proxy",
+            "default": { "useApifyProxy": false },
+            "prefill": { "useApifyProxy": false }
+        }
+    }
+}
