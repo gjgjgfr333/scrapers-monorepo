@@ -55,10 +55,10 @@ Not every ATS publishes every field. Salary comes from Ashby, Recruitee and Leve
 
 The Actor uses pay-per-event pricing. You pay only for the jobs that land in the dataset:
 
-| Event               | Charged for                                             | Price    | Per 1,000 |
-| ------------------- | ------------------------------------------------------- | -------- | --------- |
-| `job`               | Each job saved to the dataset                           | $0.0015  | $1.50     |
-| `apify-actor-start` | Each run, per GB of memory ($0.001 at the default 4 GB) | $0.00025 | —         |
+| Event               | Charged for                                              | Price    | Per 1,000 |
+| ------------------- | -------------------------------------------------------- | -------- | --------- |
+| `job`               | Each job saved to the dataset                            | $0.0015  | $1.50     |
+| `apify-actor-start` | Each run, per GB of memory ($0.0002 at the default 4 GB) | $0.00005 | —         |
 
 These are Free plan prices; on paid Apify plans the price per 1,000 jobs is $1.35 (Starter), $1.20 (Scale) and $1.05 (Business). Jobs dropped by your filters are not charged.
 
