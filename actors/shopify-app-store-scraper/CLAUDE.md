@@ -48,6 +48,7 @@ Things that are not obvious from a single file:
 - `reviewsSince` stops paging once a whole page is older (edited reviews carry the edit date, so one older review does not end the scan).
 - Review permalinks are `/reviews/<id>`, not `/<handle>/reviews/<id>` (404).
 - Both events share one budget, so `pushItem` keeps the cost of in-flight charges in dollars. Locally an event has no price before its first charge and the SDK charges $1; the code assumes that.
+- `npm install` on macOS drops the Linux-only optional `@emnapi/*` entries from `package-lock.json` (npm bug), and then CI's `npm ci` fails on Linux. After changing dependencies, check that `git diff package-lock.json` does not remove them; adding `cheerio` was done by hand on the template's lockfile.
 - `cheerio` is a direct dependency at the version `@crawlee/cheerio` uses. Its ESM typings do not match Crawlee's CJS ones, so `src/appstore.ts` takes the `$` type from `CheerioCrawlingContext`.
 - The named `charging_log` dataset is not purged by `apify run --purge`; delete `storage/datasets/charging_log` between charging tests.
 
