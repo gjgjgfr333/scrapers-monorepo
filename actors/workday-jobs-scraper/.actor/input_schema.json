@@ -1,0 +1,65 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "Workday Jobs Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Workday career site URLs",
+            "type": "array",
+            "description": "Career sites on Workday, one per line, e.g. https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite. A URL copied after choosing filters on the site (location, job category…) keeps those filters.",
+            "editor": "stringList",
+            "prefill": ["https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite"]
+        },
+        "searchText": {
+            "title": "Search text",
+            "type": "string",
+            "description": "Keywords to search for on every site, as in the site's search box, e.g. python or data engineer. Leave empty for all jobs. A search in the URL (?q=) takes precedence.",
+            "editor": "textfield",
+            "default": ""
+        },
+        "includeDescription": {
+            "title": "Include job details",
+            "type": "boolean",
+            "description": "Load each job's page for the full description, exact posting date, apply deadline, country and time type. Turning this off is much faster, but the date is then approximate (\"Posted 3 Days Ago\").",
+            "default": true
+        },
+        "postedWithinDays": {
+            "title": "Posted within (days)",
+            "type": "integer",
+            "description": "Keep only jobs posted in the last N days. 0 keeps all jobs.",
+            "minimum": 0,
+            "default": 0
+        },
+        "splitBeyond2000": {
+            "title": "Get more than 2000 jobs per site",
+            "type": "boolean",
+            "description": "Workday search returns at most 2000 jobs. When a site has more, split the search by the site's own filters (job category, location…) to reach every job.",
+            "default": true
+        },
+        "maxJobsPerSite": {
+            "title": "Max jobs per site",
+            "type": "integer",
+            "description": "Maximum number of jobs to return for each career site. 0 means no limit.",
+            "minimum": 0,
+            "default": 0,
+            "prefill": 100
+        },
+        "maxItems": {
+            "title": "Max jobs in total",
+            "type": "integer",
+            "description": "Maximum number of jobs to return in the whole run. You pay only for jobs that are saved.",
+            "minimum": 1,
+            "default": 1000
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Proxy servers to use. Workday career sites work without a proxy.",
+            "editor": "proxy",
+            "default": { "useApifyProxy": false },
+            "prefill": { "useApifyProxy": false }
+        }
+    },
+    "required": ["startUrls"]
+}

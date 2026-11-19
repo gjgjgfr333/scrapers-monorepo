@@ -1,0 +1,14 @@
+{
+    "$schema": "https://apify.com/schemas/v1/key-value-store.ide.json",
+    "actorKeyValueStoreSchemaVersion": 1,
+    "title": "Run summary",
+    "description": "Per-site result of the run",
+    "collections": {
+        "summary": {
+            "title": "Run summary",
+            "description": "Jobs found and saved per career site, estimated total, and why a site gave no jobs (not found, empty, error)",
+            "key": "RUN_SUMMARY",
+            "contentTypes": ["application/json"]
+        }
+    }
+}
