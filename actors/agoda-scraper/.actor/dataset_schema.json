@@ -1,0 +1,203 @@
+{
+    "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+    "actorSpecification": 1,
+    "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string",
+                "enum": ["hotel", "review", "hotelSummary"],
+                "description": "Kind of item: hotel details, one review, or the summary of the reviews collected for a hotel"
+            },
+            "hotelId": { "type": "integer", "description": "Agoda hotel id" },
+            "englishName": { "type": ["string", "null"], "description": "Hotel name in English" },
+            "accommodationType": { "type": ["string", "null"], "description": "Hotel, Apartment, Resort, …" },
+            "starRating": { "type": ["number", "null"], "description": "Star rating given by the property" },
+            "address": { "type": ["string", "null"], "description": "Full address" },
+            "street": { "type": ["string", "null"], "description": "Street address" },
+            "area": { "type": ["string", "null"], "description": "District or area" },
+            "city": { "type": ["string", "null"], "description": "City" },
+            "country": { "type": ["string", "null"], "description": "Country" },
+            "postalCode": { "type": ["string", "null"], "description": "Postal code" },
+            "latitude": { "type": ["number", "null"], "description": "Latitude" },
+            "longitude": { "type": ["number", "null"], "description": "Longitude" },
+            "reviewScore": { "type": ["number", "null"], "description": "Overall guest score, 0 to 10" },
+            "reviewScoreText": { "type": ["string", "null"], "description": "Score label, e.g. Excellent" },
+            "reviewsCount": {
+                "type": ["integer", "null"],
+                "description": "Number of Agoda reviews the score is based on"
+            },
+            "recommendationScore": {
+                "type": ["integer", "null"],
+                "description": "Share of guests who recommend the hotel, percent"
+            },
+            "categoryScores": {
+                "type": "array",
+                "description": "Scores by category (cleanliness, location, service, …) with the city average",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": { "type": ["string", "null"] },
+                        "name": { "type": ["string", "null"] },
+                        "score": { "type": ["number", "null"] },
+                        "cityAverage": { "type": ["number", "null"] }
+                    }
+                }
+            },
+            "scoreDistribution": {
+                "type": "object",
+                "description": "Number of Agoda reviews per score band: exceptional, excellent, very_good, good, below_expectation"
+            },
+            "description": { "type": ["string", "null"], "description": "Hotel description, plain text" },
+            "highlights": { "type": "array", "items": { "type": "string" }, "description": "Things guests love" },
+            "images": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Photo URLs (hotel) or guest photos (review)"
+            },
+            "hotelName": { "type": "string", "description": "Hotel name" },
+            "hotelUrl": { "type": ["string", "null"], "description": "Hotel page on Agoda" },
+            "reviewId": { "type": "integer", "description": "Agoda review id" },
+            "provider": {
+                "type": "string",
+                "enum": ["agoda", "booking", "other"],
+                "description": "Where the review comes from: Agoda guests or Booking.com"
+            },
+            "rating": { "type": ["number", "null"], "description": "Review rating, 0 to 10" },
+            "ratingText": { "type": ["string", "null"], "description": "Rating label, e.g. Exceptional" },
+            "title": { "type": ["string", "null"], "description": "Review title" },
+            "text": {
+                "type": ["string", "null"],
+                "description": "Review text; for Booking.com reviews, the liked and disliked parts together"
+            },
+            "positives": {
+                "type": ["string", "null"],
+                "description": "What the guest liked (mostly Booking.com reviews)"
+            },
+            "negatives": {
+                "type": ["string", "null"],
+                "description": "What the guest disliked (mostly Booking.com reviews)"
+            },
+            "language": { "type": ["string", "null"], "description": "Language of the review, ISO code" },
+            "reviewDate": { "type": ["string", "null"], "description": "Date the review was written, YYYY-MM-DD" },
+            "checkInDate": { "type": ["string", "null"], "description": "Check-in date (Agoda reviews)" },
+            "checkOutDate": { "type": ["string", "null"], "description": "Check-out date (Agoda reviews)" },
+            "stayMonth": { "type": ["string", "null"], "description": "Month of the stay, e.g. December 2024" },
+            "travelerType": {
+                "type": ["string", "null"],
+                "description": "Couple, Solo traveler, Family with young children, …"
+            },
+            "roomType": { "type": ["string", "null"], "description": "Room the guest stayed in" },
+            "lengthOfStay": { "type": ["integer", "null"], "description": "Nights stayed" },
+            "reviewerCountry": { "type": ["string", "null"], "description": "Country of the reviewer" },
+            "helpfulVotes": { "type": "integer", "description": "How many people found the review helpful" },
+            "reviewerName": {
+                "type": ["string", "null"],
+                "description": "Reviewer's first name, only when Include reviewer first name is on"
+            },
+            "reviewsAvailable": {
+                "type": "object",
+                "description": "Reviews Agoda reports per source (summary items)"
+            },
+            "reviewsCollected": { "type": "integer", "description": "Reviews saved in this run (summary items)" },
+            "reviewsByProvider": { "type": "object", "description": "Saved reviews per source (summary items)" },
+            "averageRatingCollected": {
+                "type": ["number", "null"],
+                "description": "Average rating of the saved reviews (summary items)"
+            },
+            "ratingDistribution": { "type": "object", "description": "Saved reviews per score band (summary items)" },
+            "travelerTypes": { "type": "object", "description": "Saved reviews per traveler type (summary items)" },
+            "scrapedAt": { "type": "string", "description": "When the item was scraped, ISO 8601" }
+        },
+        "required": ["type", "hotelId", "hotelName", "scrapedAt"]
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": [
+                    "type",
+                    "hotelName",
+                    "hotelUrl",
+                    "reviewScore",
+                    "provider",
+                    "rating",
+                    "reviewDate",
+                    "title",
+                    "text"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "type": { "label": "Type", "format": "text" },
+                    "hotelName": { "label": "Hotel", "format": "text" },
+                    "hotelUrl": { "label": "URL", "format": "link" },
+                    "reviewScore": { "label": "Hotel score", "format": "number" },
+                    "provider": { "label": "Source", "format": "text" },
+                    "rating": { "label": "Rating", "format": "number" },
+                    "reviewDate": { "label": "Date", "format": "date" },
+                    "title": { "label": "Title", "format": "text" },
+                    "text": { "label": "Text", "format": "text" }
+                }
+            }
+        },
+        "hotels": {
+            "title": "Hotels",
+            "transformation": {
+                "fields": [
+                    "hotelName",
+                    "hotelUrl",
+                    "city",
+                    "country",
+                    "starRating",
+                    "reviewScore",
+                    "reviewsCount",
+                    "recommendationScore"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "hotelName": { "label": "Hotel", "format": "text" },
+                    "hotelUrl": { "label": "URL", "format": "link" },
+                    "city": { "label": "City", "format": "text" },
+                    "country": { "label": "Country", "format": "text" },
+                    "starRating": { "label": "Stars", "format": "number" },
+                    "reviewScore": { "label": "Score", "format": "number" },
+                    "reviewsCount": { "label": "Reviews", "format": "number" },
+                    "recommendationScore": { "label": "Recommend, %", "format": "number" }
+                }
+            }
+        },
+        "reviews": {
+            "title": "Reviews",
+            "transformation": {
+                "fields": [
+                    "hotelName",
+                    "provider",
+                    "rating",
+                    "reviewDate",
+                    "travelerType",
+                    "reviewerCountry",
+                    "title",
+                    "text"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "hotelName": { "label": "Hotel", "format": "text" },
+                    "provider": { "label": "Source", "format": "text" },
+                    "rating": { "label": "Rating", "format": "number" },
+                    "reviewDate": { "label": "Date", "format": "date" },
+                    "travelerType": { "label": "Traveler", "format": "text" },
+                    "reviewerCountry": { "label": "Country", "format": "text" },
+                    "title": { "label": "Title", "format": "text" },
+                    "text": { "label": "Text", "format": "text" }
+                }
+            }
+        }
+    }
+}

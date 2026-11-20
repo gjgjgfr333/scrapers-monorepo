@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#0a6ea8"/>
+  <!-- hotel building -->
+  <rect x="96" y="132" width="220" height="292" rx="14" fill="#ffffff"/>
+  <rect x="80" y="404" width="252" height="28" rx="10" fill="#ffffff"/>
+  <!-- windows -->
+  <g fill="#0a6ea8">
+    <rect x="128" y="168" width="48" height="44" rx="6"/>
+    <rect x="236" y="168" width="48" height="44" rx="6"/>
+    <rect x="128" y="240" width="48" height="44" rx="6"/>
+    <rect x="236" y="240" width="48" height="44" rx="6"/>
+    <rect x="128" y="312" width="48" height="44" rx="6"/>
+    <rect x="236" y="312" width="48" height="44" rx="6"/>
+    <rect x="182" y="340" width="48" height="66" rx="6"/>
+  </g>
+  <!-- review bubble with star -->
+  <path d="M300 96 h120 a32 32 0 0 1 32 32 v96 a32 32 0 0 1 -32 32 h-52 l-40 40 v-40 h-28 a32 32 0 0 1 -32 -32 v-96 a32 32 0 0 1 32 -32 z" fill="#ffc83d"/>
+  <path d="M360 120 l17 35 38 5 -28 26 7 38 -34 -18 -34 18 7 -38 -28 -26 38 -5 z" fill="#0a6ea8"/>
+</svg>
