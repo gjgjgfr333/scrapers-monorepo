@@ -2,8 +2,8 @@
     "$schema": "https://apify.com/schemas/v1/actor.ide.json",
     "actorSpecification": 1,
     "name": "agoda-scraper",
-    "title": "Agoda Scraper: Hotels & Reviews",
-    "description": "Scrape Agoda hotels and guest reviews without login: rating, category scores, address, GPS, photos, plus every review with rating, text, liked and disliked parts, traveler type and stay dates. Booking.com reviews shown on Agoda included.",
+    "title": "Agoda Scraper & API: Hotels and Guest Reviews",
+    "description": "Agoda scraper and API: hotel details and guest reviews from Agoda, including Booking.com reviews shown on Agoda. Rating, category scores, address, GPS, photos, review text, liked and disliked parts, traveler type, stay dates. $1.50 per 1,000 reviews.",
     "version": "0.0",
     "buildTag": "latest",
     "meta": {

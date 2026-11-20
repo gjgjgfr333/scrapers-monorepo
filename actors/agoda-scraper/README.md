@@ -1,4 +1,4 @@
-# Agoda Scraper: Hotels & Reviews
+# Agoda Scraper & API: Hotels and Guest Reviews
 
 ## What does Agoda Scraper do?
 

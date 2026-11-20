@@ -2,8 +2,8 @@
     "$schema": "https://apify.com/schemas/v1/actor.ide.json",
     "actorSpecification": 1,
     "name": "shopify-app-store-scraper",
-    "title": "Shopify App Store Scraper: Apps, Pricing, Reviews",
-    "description": "Scrape Shopify App Store apps by URL, category or the whole catalog: rating, review count, pricing plans, categories, languages, developer, and merchant reviews with developer replies. Filter reviews by date and stars.",
+    "title": "Shopify App Store Scraper & API: Apps, Pricing, Reviews",
+    "description": "Shopify App Store scraper and API: apps by URL, category or the whole catalog with rating, review count, pricing plans, categories, languages and developer, plus merchant reviews with developer replies. $1 per 1,000 apps, $0.50 per 1,000 reviews.",
     "version": "0.0",
     "buildTag": "latest",
     "meta": {

@@ -1,4 +1,4 @@
-# ATS Jobs Scraper: Greenhouse, Lever, Ashby, Workable, Recruitee, SmartRecruiters, Workday
+# Greenhouse, Lever, Ashby, Workable, Recruitee, SmartRecruiters & Workday Jobs Scraper API
 
 ## What does ATS Jobs Scraper do?
 

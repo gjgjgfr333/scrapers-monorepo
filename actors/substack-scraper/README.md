@@ -1,4 +1,4 @@
-# Substack Scraper
+# Substack Scraper & API: Posts, Comments & Newsletters
 
 ## What does Substack Scraper do?
 

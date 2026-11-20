@@ -111,7 +111,19 @@ Claude in Chrome, аккаунт tabakevgenijj@gmail.com (`eugene_krabs`). За�
 
 Адрес актора — `https://console.apify.com/actors/<id>`; id — в выводе `apify push`.
 
-1. **Publishing → Display information**: иконка (`find` → скрытый `file-input` «Upload image» → `file_upload`). Загружать можно только файлы, доступные сессии: скопируй `icon.png` в скретчпад и загружай оттуда. Дальше «Looks good», Actor name, Description (≤ 300 знаков), «Use custom SEO details»: SEO name и SEO description (≤ 200), категории → Save.
+1. **Publishing → Display information**: иконка (`find` → скрытый `file-input` «Upload image» → `file_upload`). Загружать можно только файлы, доступные сессии: скопируй `icon.png` в скретчпад и загружай оттуда. Дальше «Looks good» → Save. Название, описание, SEO и категории удобнее выставить через API (ниже), а не в форме.
+
+**SEO и категории.** Поиск Store индексирует **название и описание** актора, README — нет (проверено в ноябре 2026). Категории Console обещает назначить сама после публикации, но не назначила их ни одному из наших акторов даже за 46 дней. Без категорий актора нет на страницах категорий, поэтому выставляй их сам. Правила текста:
+- название: `<Главный запрос> Scraper & API: <что даёт>` — с самым частым поисковым запросом в начале (`Workday Jobs`, `Agoda`, `Shopify App Store`) и словом «API», его часто добавляют в поиск; перечисли сайты, которые ищут по имени (`Greenhouse, Lever, Ashby`);
+- описание (≤ 300): начать с «<site> scraper and API», дальше поля, по которым ищут, и цена с Free-плана («$1.50 per 1,000 reviews»);
+- SEO title ≤ 60, SEO description ≤ 160 (обрезка в Google);
+- 2–3 категории, как у лидеров ниши (`GET /v2/acts/<лидер>` → `categories`);
+- `title` и `description` в `.actor/actor.json` и H1 README — те же, что в Store (репозиторий — источник правды).
+
+```bash
+apify api PUT "acts/eugene_krabs~<имя>" -d '{"title":"…","description":"…","seoTitle":"…","seoDescription":"…","categories":["JOBS","LEAD_GENERATION"]}'
+```
+Ответ возвращает актор: сверь `title` и `categories`. Позиции в поиске проверь `GET /v2/store?search=<запрос>&limit=100` (порядок как в Store).
 2. **Publishing → Monetization → Change** (или первичная настройка): модель pay-per-event, события с **теми же именами, что в коде** (`src/charging.ts`), у каждого — «Set up Apify Store pricing discounts for this event» и цена в 4 поля: No discount / Bronze −10 % / Silver −20 % / Gold −30 %. «Prefill prices» просит min/max — не нужен, вводи сам (triple_click → type). Далее Continue → Primary event (главное событие) → Reasoning → Review: сверь таблицу Free / Starter / Scale / Business → Confirm.
 3. **Публикация в Store** (кнопка публикации на вкладке Publishing), если актор новый.
 4. **Задача-пример**: «Save as a new task» с рабочим входом → Start, убедись, что есть результаты → вкладка Publishing задачи: Title, Description, SEO title (≤ 60), SEO description (≤ 160) → Save; Input → Select all → Save; Dataset schema → Overview → Save; Publish task → Publish.
