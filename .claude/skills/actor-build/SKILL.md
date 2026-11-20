@@ -123,7 +123,7 @@ Claude in Chrome, аккаунт tabakevgenijj@gmail.com (`eugene_krabs`). За�
 ```bash
 apify api PUT "acts/eugene_krabs~<имя>" -d '{"title":"…","description":"…","seoTitle":"…","seoDescription":"…","categories":["JOBS","LEAD_GENERATION"]}'
 ```
-Ответ возвращает актор: сверь `title` и `categories`. Позиции в поиске проверь `GET /v2/store?search=<запрос>&limit=100` (порядок как в Store).
+Ответ возвращает актор: сверь `title` и `categories`. Затем добавь 4–6 поисковых запросов актора (главный запрос, «<site> api», «<site> scraper», запросы по данным) в `scripts/store-queries.json` и сними первый замер: `python3 -I scripts/store-rank.py <имя> --csv scripts/store-rank.csv`. Индекс Store обновляется после новой сборки, поэтому меряй после `apify push`.
 2. **Publishing → Monetization → Change** (или первичная настройка): модель pay-per-event, события с **теми же именами, что в коде** (`src/charging.ts`), у каждого — «Set up Apify Store pricing discounts for this event» и цена в 4 поля: No discount / Bronze −10 % / Silver −20 % / Gold −30 %. «Prefill prices» просит min/max — не нужен, вводи сам (triple_click → type). Далее Continue → Primary event (главное событие) → Reasoning → Review: сверь таблицу Free / Starter / Scale / Business → Confirm.
 3. **Публикация в Store** (кнопка публикации на вкладке Publishing), если актор новый.
 4. **Задача-пример**: «Save as a new task» с рабочим входом → Start, убедись, что есть результаты → вкладка Publishing задачи: Title, Description, SEO title (≤ 60), SEO description (≤ 160) → Save; Input → Select all → Save; Dataset schema → Overview → Save; Publish task → Publish.

@@ -1,0 +1,15 @@
+{
+    "substack-scraper": ["substack", "substack scraper", "substack api", "newsletter scraper", "substack comments"],
+    "workday-jobs-scraper": ["workday", "workday jobs", "myworkdayjobs", "workday scraper", "career site jobs"],
+    "ats-jobs-scraper": [
+        "greenhouse",
+        "greenhouse jobs",
+        "lever jobs",
+        "ashby jobs",
+        "ats jobs",
+        "career page jobs",
+        "job scraper"
+    ],
+    "shopify-app-store-scraper": ["shopify app store", "shopify apps", "shopify app reviews", "shopify app"],
+    "agoda-scraper": ["agoda", "agoda reviews", "agoda scraper", "hotel reviews", "agoda hotels"]
+}
