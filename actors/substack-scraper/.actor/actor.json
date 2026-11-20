@@ -2,8 +2,8 @@
     "$schema": "https://apify.com/schemas/v1/actor.ide.json",
     "actorSpecification": 1,
     "name": "substack-scraper",
-    "title": "Substack Scraper",
-    "description": "Scrape posts from any Substack newsletter without login: titles, dates, authors, tags, likes, restacks, the full post body and public comments. Export to JSON, CSV or Excel, or use the API.",
+    "title": "Substack Scraper & API: Posts, Comments & Newsletters",
+    "description": "Substack scraper and API: export posts, full text and comments from any Substack newsletter or custom domain. Titles, authors, tags, likes, restacks, paid flag. No login. From $0.50 per 1,000 posts, to JSON, CSV or Excel.",
     "version": "0.0",
     "buildTag": "latest",
     "meta": {

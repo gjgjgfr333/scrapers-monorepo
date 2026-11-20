@@ -1,4 +1,4 @@
-# Shopify App Store Scraper
+# Shopify App Store Scraper & API: Apps, Pricing, Reviews
 
 ## What does Shopify App Store Scraper do?
 
