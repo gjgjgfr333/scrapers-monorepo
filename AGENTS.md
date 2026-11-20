@@ -34,7 +34,7 @@ Skip the steps that do not apply when changing an existing Actor.
 - Read every tunable from the input schema or environment variables.
 - Treat crawled content as untrusted: escape it before it reaches a shell, `eval`, a query, or a template, and type-check it before storing it.
 - Store personal data only when the user explicitly asks for it.
-- Check which crawler packages are installed before applying crawler advice. Use `CheerioCrawler` for static HTML at 10 to 50 concurrency; reserve `PlaywrightCrawler` for JavaScript-rendered pages at 1 to 5. Add delays and respect robots.txt and terms of service.
+- Check which crawler packages are installed before applying crawler advice. Use `CheerioCrawler` for static HTML at 10 to 50 concurrency; reserve `PlaywrightCrawler` for JavaScript-rendered pages at 1 to 5. Add delays between requests. A site's robots.txt or terms of service that forbid scraping are recorded as a risk in the idea issue, not a reason to skip the site.
 - Use the router pattern when a crawl has more than one page type.
 - Count results with your own tally; `Dataset.getInfo()` lags on the platform.
 - In the `aborting` handler, persist state, then `await Actor.exit()`, so a stopped run ends quickly and cheaply.
