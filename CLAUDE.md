@@ -25,6 +25,7 @@ Helpers:
 ```bash
 python3 -I scripts/store-competitors.py "<query>" [--category CODE] [--limit N] [--json]   # demand, success rate, rating, price, last update
 python3 -I scripts/render-icon.py actors/<name>/.actor/icon.svg                            # 512×512 PNG with rounded corners (macOS)
+python3 -I scripts/store-rank.py [<actor>] --csv scripts/store-rank.csv                   # our positions in Store search per query, change since the last saved day
 ```
 
 ## Conventions
