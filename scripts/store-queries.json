@@ -11,5 +11,6 @@
         "job scraper"
     ],
     "shopify-app-store-scraper": ["shopify app store", "shopify apps", "shopify app reviews", "shopify app"],
-    "agoda-scraper": ["agoda", "agoda reviews", "agoda scraper", "hotel reviews", "agoda hotels"]
+    "agoda-scraper": ["agoda", "agoda reviews", "agoda scraper", "hotel reviews", "agoda hotels"],
+    "google-flights-scraper": ["google flights", "google flights api", "google flights scraper", "flight prices", "flight price tracker", "cheap flights"]
 }
