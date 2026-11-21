@@ -83,6 +83,9 @@ export const calendarRequests = (
         };
     });
 
+/** How many times an empty search page is loaded again before it counts as "no flights" */
+const EMPTY_RESULT_RETRIES = 2;
+
 export const initialState = (): CrawlState => ({
     flightsPushed: 0,
     daysPushed: 0,
@@ -131,6 +134,10 @@ export const createRouter = ({ options, maxFlightsPerSearch, onlyChanged, histor
         const state = await getState(crawler as CheerioCrawler);
         const search = `${route.route} ${date}`;
         if (parsed.length === 0) {
+            // Under load Google sometimes answers a busy route with an empty page; believe it only on the third try
+            if (request.retryCount < EMPTY_RESULT_RETRIES) {
+                throw new Error('Google Flights returned no flights, trying again to make sure');
+            }
             state.emptySearches.push(search);
             log.warning('Google Flights found no flights', { route: route.route, date });
             return;
