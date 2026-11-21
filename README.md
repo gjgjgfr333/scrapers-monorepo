@@ -9,6 +9,7 @@ Apify Actors by [eugene_krabs](https://apify.com/eugene_krabs). Each folder in `
 | [ats-jobs-scraper](actors/ats-jobs-scraper) | [eugene_krabs/ats-jobs-scraper](https://apify.com/eugene_krabs/ats-jobs-scraper) | Open jobs from career pages on Greenhouse, Lever, Ashby, Workable, Recruitee, SmartRecruiters and Workday |
 | [shopify-app-store-scraper](actors/shopify-app-store-scraper) | [eugene_krabs/shopify-app-store-scraper](https://apify.com/eugene_krabs/shopify-app-store-scraper) | Shopify App Store apps with pricing plans, and merchant reviews with developer replies |
 | [agoda-scraper](actors/agoda-scraper) | [eugene_krabs/agoda-scraper](https://apify.com/eugene_krabs/agoda-scraper) | Agoda hotels with category scores, and guest reviews from Agoda and Booking.com |
+| [google-flights-scraper](actors/google-flights-scraper) | [eugene_krabs/google-flights-scraper](https://apify.com/eugene_krabs/google-flights-scraper) | Google Flights prices by route and date, a cheapest-price calendar, and price changes between runs |
 
 ## Working on an Actor
 
