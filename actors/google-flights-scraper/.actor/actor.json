@@ -1,0 +1,19 @@
+{
+    "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+    "actorSpecification": 1,
+    "name": "google-flights-scraper",
+    "title": "Google Flights Scraper & API: Prices, Calendar & Tracking",
+    "description": "Google Flights scraper and API: flight prices, airlines, stops, times, CO2 and a cheapest-price calendar for any route and date range. Tracks price changes between runs. From $0.30 per 1,000 calendar days, to JSON, CSV or Excel.",
+    "version": "0.0",
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "ts-crawlee-cheerio",
+        "generatedBy": "Claude Code with Claude Opus 5.5"
+    },
+    "inputSchema": "./input_schema.json",
+    "outputSchema": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "dockerfile": "../Dockerfile"
+}

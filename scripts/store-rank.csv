@@ -25,3 +25,9 @@ date,actor,query,position,total
 2026-11-20,agoda-scraper,agoda scraper,78,264
 2026-11-20,agoda-scraper,hotel reviews,,1604
 2026-11-20,agoda-scraper,agoda hotels,,247
+2026-11-21,google-flights-scraper,google flights,,289
+2026-11-21,google-flights-scraper,google flights api,31,149
+2026-11-21,google-flights-scraper,google flights scraper,,283
+2026-11-21,google-flights-scraper,flight prices,,635
+2026-11-21,google-flights-scraper,flight price tracker,,65
+2026-11-21,google-flights-scraper,cheap flights,50,77

@@ -1,0 +1,348 @@
+{
+    "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+    "actorSpecification": 1,
+    "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string",
+                "description": "flight (Flights mode) or calendarDay (Price calendar mode)"
+            },
+            "route": {
+                "type": "string",
+                "description": "Route from the input, ORIGIN-DEST"
+            },
+            "origin": {
+                "type": "string",
+                "description": "Origin IATA code from the input"
+            },
+            "destination": {
+                "type": "string",
+                "description": "Destination IATA code from the input"
+            },
+            "departureAirport": {
+                "type": ["string", "null"],
+                "description": "Flights: airport the flight leaves from (differs from origin for city codes)"
+            },
+            "arrivalAirport": {
+                "type": ["string", "null"],
+                "description": "Flights: airport the flight arrives at"
+            },
+            "departureDate": {
+                "type": "string",
+                "description": "Flights: departure date, YYYY-MM-DD"
+            },
+            "date": {
+                "type": "string",
+                "description": "Price calendar: departure date, YYYY-MM-DD"
+            },
+            "returnDate": {
+                "type": ["string", "null"],
+                "description": "Return date for round trips, null for one-way"
+            },
+            "price": {
+                "type": ["number", "null"],
+                "description": "Flights: total price for all passengers; round-trip total for round trips"
+            },
+            "minPrice": {
+                "type": "number",
+                "description": "Price calendar: cheapest price on this date"
+            },
+            "currency": {
+                "type": "string",
+                "description": "Currency of prices"
+            },
+            "airlines": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Flights: airlines operating the flight"
+            },
+            "flightNumbers": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Flights: flight numbers of all segments, e.g. BA322"
+            },
+            "stops": {
+                "type": "integer",
+                "description": "Flights: number of stops"
+            },
+            "layovers": {
+                "type": "array",
+                "description": "Flights: connections",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "airport": {
+                            "type": ["string", "null"]
+                        },
+                        "airportName": {
+                            "type": ["string", "null"]
+                        },
+                        "city": {
+                            "type": ["string", "null"]
+                        },
+                        "durationMinutes": {
+                            "type": ["integer", "null"]
+                        }
+                    }
+                }
+            },
+            "departureTime": {
+                "type": ["string", "null"],
+                "description": "Flights: local departure time, HH:MM"
+            },
+            "arrivalDate": {
+                "type": ["string", "null"],
+                "description": "Flights: local arrival date"
+            },
+            "arrivalTime": {
+                "type": ["string", "null"],
+                "description": "Flights: local arrival time, HH:MM"
+            },
+            "durationMinutes": {
+                "type": ["integer", "null"],
+                "description": "Flights: total travel time in minutes"
+            },
+            "aircraft": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Flights: aircraft types"
+            },
+            "segments": {
+                "type": "array",
+                "description": "Flights: every leg of the itinerary",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "flightNumber": {
+                            "type": ["string", "null"]
+                        },
+                        "airline": {
+                            "type": ["string", "null"]
+                        },
+                        "from": {
+                            "type": ["string", "null"]
+                        },
+                        "fromName": {
+                            "type": ["string", "null"]
+                        },
+                        "to": {
+                            "type": ["string", "null"]
+                        },
+                        "toName": {
+                            "type": ["string", "null"]
+                        },
+                        "departureDate": {
+                            "type": ["string", "null"]
+                        },
+                        "departureTime": {
+                            "type": ["string", "null"]
+                        },
+                        "arrivalDate": {
+                            "type": ["string", "null"]
+                        },
+                        "arrivalTime": {
+                            "type": ["string", "null"]
+                        },
+                        "aircraft": {
+                            "type": ["string", "null"]
+                        },
+                        "legroom": {
+                            "type": ["string", "null"]
+                        },
+                        "durationMinutes": {
+                            "type": ["integer", "null"]
+                        }
+                    }
+                }
+            },
+            "co2Kg": {
+                "type": ["integer", "null"],
+                "description": "Flights: estimated CO2 emissions per passenger, kg"
+            },
+            "typicalCo2Kg": {
+                "type": ["integer", "null"],
+                "description": "Flights: typical emissions for this route, kg"
+            },
+            "co2VsTypicalPct": {
+                "type": ["integer", "null"],
+                "description": "Flights: emissions compared with typical, percent"
+            },
+            "isBest": {
+                "type": "boolean",
+                "description": "Flights: listed by Google among the best flights"
+            },
+            "cabinClass": {
+                "type": "string",
+                "description": "Cabin class of the search"
+            },
+            "adults": {
+                "type": "integer",
+                "description": "Number of adults of the search"
+            },
+            "googleFlightsUrl": {
+                "type": "string",
+                "description": "Google Flights page of this search"
+            },
+            "previousPrice": {
+                "type": ["number", "null"],
+                "description": "Price in the previous run, with price tracking on"
+            },
+            "priceChange": {
+                "type": ["number", "null"],
+                "description": "Price minus previous price"
+            },
+            "priceChangePct": {
+                "type": ["number", "null"],
+                "description": "Price change in percent"
+            },
+            "scrapedAt": {
+                "type": "string",
+                "description": "When the item was scraped, ISO 8601"
+            }
+        },
+        "required": ["type", "route", "currency", "scrapedAt"]
+    },
+    "views": {
+        "overview": {
+            "title": "Flights",
+            "transformation": {
+                "fields": [
+                    "route",
+                    "departureDate",
+                    "returnDate",
+                    "price",
+                    "currency",
+                    "airlines",
+                    "flightNumbers",
+                    "stops",
+                    "departureTime",
+                    "arrivalTime",
+                    "durationMinutes",
+                    "co2Kg",
+                    "priceChange",
+                    "googleFlightsUrl"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "route": {
+                        "label": "Route"
+                    },
+                    "departureDate": {
+                        "label": "Date",
+                        "format": "date"
+                    },
+                    "returnDate": {
+                        "label": "Return",
+                        "format": "date"
+                    },
+                    "price": {
+                        "label": "Price",
+                        "format": "number"
+                    },
+                    "currency": {
+                        "label": "Currency"
+                    },
+                    "airlines": {
+                        "label": "Airlines",
+                        "format": "array"
+                    },
+                    "flightNumbers": {
+                        "label": "Flights",
+                        "format": "array"
+                    },
+                    "stops": {
+                        "label": "Stops",
+                        "format": "number"
+                    },
+                    "departureTime": {
+                        "label": "Departs"
+                    },
+                    "arrivalTime": {
+                        "label": "Arrives"
+                    },
+                    "durationMinutes": {
+                        "label": "Minutes",
+                        "format": "number"
+                    },
+                    "co2Kg": {
+                        "label": "CO2 kg",
+                        "format": "number"
+                    },
+                    "priceChange": {
+                        "label": "Change",
+                        "format": "number"
+                    },
+                    "googleFlightsUrl": {
+                        "label": "Link",
+                        "format": "link"
+                    }
+                }
+            }
+        },
+        "calendar": {
+            "title": "Price calendar",
+            "transformation": {
+                "fields": [
+                    "route",
+                    "date",
+                    "returnDate",
+                    "minPrice",
+                    "currency",
+                    "previousPrice",
+                    "priceChange",
+                    "priceChangePct",
+                    "googleFlightsUrl"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "route": {
+                        "label": "Route"
+                    },
+                    "date": {
+                        "label": "Date",
+                        "format": "date"
+                    },
+                    "returnDate": {
+                        "label": "Return",
+                        "format": "date"
+                    },
+                    "minPrice": {
+                        "label": "Cheapest",
+                        "format": "number"
+                    },
+                    "currency": {
+                        "label": "Currency"
+                    },
+                    "previousPrice": {
+                        "label": "Previous",
+                        "format": "number"
+                    },
+                    "priceChange": {
+                        "label": "Change",
+                        "format": "number"
+                    },
+                    "priceChangePct": {
+                        "label": "Change %",
+                        "format": "number"
+                    },
+                    "googleFlightsUrl": {
+                        "label": "Link",
+                        "format": "link"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,123 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "Google Flights Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "routes": {
+            "title": "Routes",
+            "type": "array",
+            "description": "Pairs of IATA codes ORIGIN-DEST, one per line: airports (LHR-CDG) or metropolitan city codes (NYC-LON).",
+            "editor": "stringList",
+            "prefill": ["LHR-CDG", "JFK-LAX"]
+        },
+        "mode": {
+            "title": "Mode",
+            "type": "string",
+            "description": "Flights: every flight Google shows for each departure date. Price calendar: the cheapest price for each date of the range, one row per route and date, for price charts and monitoring.",
+            "editor": "select",
+            "enum": ["flights", "calendar"],
+            "enumTitles": ["Flights on each date", "Price calendar (cheapest price per date)"],
+            "default": "flights"
+        },
+        "departureDate": {
+            "title": "Departure date",
+            "type": "string",
+            "description": "Date of departure, or the first date of the range. A date (2026-12-21) or relative to the run day (30 days, 2 weeks). Empty means 30 days from today.",
+            "editor": "datepicker",
+            "dateType": "absoluteOrRelative",
+            "prefill": "30 days",
+            "default": ""
+        },
+        "departureDateTo": {
+            "title": "Departure date to",
+            "type": "string",
+            "description": "Last departure date of the range. Empty means only the departure date. In Flights mode every date of the range is one search; in Price calendar mode up to 11 months fit in a few requests.",
+            "editor": "datepicker",
+            "dateType": "absoluteOrRelative",
+            "default": ""
+        },
+        "returnAfterDays": {
+            "title": "Return after (days)",
+            "type": "integer",
+            "description": "0 for one-way trips. N for round trips returning N days after departure; prices are then round-trip totals.",
+            "minimum": 0,
+            "maximum": 330,
+            "default": 0
+        },
+        "maxFlightsPerSearch": {
+            "title": "Max flights per search",
+            "type": "integer",
+            "description": "Flights mode: maximum flights to save per route and date, in the order Google shows them (best flights first). 0 means all.",
+            "minimum": 0,
+            "default": 50
+        },
+        "adults": {
+            "title": "Adults",
+            "type": "integer",
+            "description": "Number of adult passengers. Prices are totals for all passengers.",
+            "minimum": 1,
+            "maximum": 9,
+            "default": 1
+        },
+        "cabinClass": {
+            "title": "Cabin class",
+            "type": "string",
+            "description": "Travel class.",
+            "editor": "select",
+            "enum": ["economy", "premium_economy", "business", "first"],
+            "enumTitles": ["Economy", "Premium economy", "Business", "First"],
+            "default": "economy"
+        },
+        "maxStops": {
+            "title": "Max stops",
+            "type": "integer",
+            "description": "-1 for any number of stops, 0 for nonstop only, 1 or 2 for at most one or two stops.",
+            "minimum": -1,
+            "maximum": 2,
+            "default": -1
+        },
+        "currency": {
+            "title": "Currency",
+            "type": "string",
+            "description": "Currency of prices, an ISO code such as USD, EUR, GBP.",
+            "editor": "textfield",
+            "default": "USD"
+        },
+        "country": {
+            "title": "Country",
+            "type": "string",
+            "description": "Country Google Flights prices for (two-letter code, gl). Fares differ by point of sale, set the country of the traveller.",
+            "editor": "textfield",
+            "default": "US"
+        },
+        "language": {
+            "title": "Language",
+            "type": "string",
+            "description": "Language of airport and airline names (hl), e.g. en, de, fr.",
+            "editor": "textfield",
+            "default": "en"
+        },
+        "trackPriceChanges": {
+            "title": "Track price changes",
+            "type": "boolean",
+            "description": "Compare prices with the previous run of the same routes and options: adds previousPrice, priceChange and priceChangePct. History is kept in your named key-value store google-flights-history.",
+            "default": false
+        },
+        "onlyChanged": {
+            "title": "Only changed prices",
+            "type": "boolean",
+            "description": "Save only items whose price differs from the previous run (turns on price tracking). The first run saves nothing and records the prices. You pay only for saved items.",
+            "default": false
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Proxy servers to use. Prices depend on the country of the IP less than on the Country field, but Google limits frequent requests from one IP.",
+            "editor": "proxy",
+            "default": { "useApifyProxy": false },
+            "prefill": { "useApifyProxy": false }
+        }
+    },
+    "required": ["routes"]
+}
