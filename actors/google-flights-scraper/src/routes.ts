@@ -2,7 +2,6 @@ import {
     type CheerioCrawler,
     type CheerioCrawlingContext,
     createCheerioRouter,
-    NonRetryableError,
     type RequestOptions,
 } from '@crawlee/cheerio';
 import { log } from 'apify';
@@ -39,8 +38,6 @@ export interface RouterOptions {
     maxFlightsPerSearch: number;
     onlyChanged: boolean;
     history: PriceHistory;
-    /** Date chunks of the price calendar, the same for every route */
-    calendarChunks: { from: string; to: string }[];
 }
 
 // Skip the cookie consent page Google shows to European IPs
@@ -56,13 +53,19 @@ export const searchRequest = (route: Route, date: string, options: SearchOptions
     userData: { route, date } satisfies FlightsUserData,
 });
 
-export const resolveRequest = (route: Route, date: string, options: SearchOptions): RequestOptions => ({
-    url: buildSearchUrl(route, date, options),
-    uniqueKey: `resolve:${route.route}`,
+export const resolveRequest = (route: Route, from: string, to: string, options: SearchOptions): RequestOptions => ({
+    url: buildSearchUrl(route, from, options),
+    uniqueKey: `resolve:${route.route}:${from}:${to}`,
     label: LABELS.RESOLVE,
     headers: headersFor(options),
-    userData: { route, date } satisfies ResolveUserData,
+    userData: { route, from, to } satisfies ResolveUserData,
 });
+
+/** Calendar rejections that are retried before looking up place ids: Google sometimes rejects airports too */
+const CALENDAR_ERROR_RETRIES = 2;
+
+/** Place ids found by RESOLVE, per route, so the other chunks of the route skip the search page */
+const resolvedPlaces = new Map<string, Pick<Route, 'originLocation' | 'destinationLocation'>>();
 
 export const calendarRequests = (
     route: Route,
@@ -101,12 +104,12 @@ const isChanged = (item: { previousPrice: number | null; priceChange: number | n
 
 const bodyText = (body: CheerioCrawlingContext['body']) => (typeof body === 'string' ? body : body.toString('utf8'));
 
-export const createRouter = ({ options, maxFlightsPerSearch, onlyChanged, history, calendarChunks }: RouterOptions) => {
+export const createRouter = ({ options, maxFlightsPerSearch, onlyChanged, history }: RouterOptions) => {
     const router = createCheerioRouter();
 
     // The calendar rejected a code (usually a city code like NYC): read the place ids from a search page
     router.addHandler(LABELS.RESOLVE, async ({ request, body, crawler }) => {
-        const { route } = request.userData as ResolveUserData;
+        const { route, from, to } = request.userData as ResolveUserData;
         const data = extractDataBlock(bodyText(body));
         if (!data) throw new Error(`${FORMAT_CHANGED_ERROR}: no flight data on the page`);
         const places = parseLocations(data);
@@ -117,8 +120,9 @@ export const createRouter = ({ options, maxFlightsPerSearch, onlyChanged, histor
             return;
         }
         log.info('Using Google place ids for the price calendar', { route: route.route, ...places });
-        const resolved: Route = { ...route, originLocation: places.origin, destinationLocation: places.destination };
-        await crawler.addRequests(calendarRequests(resolved, calendarChunks, options));
+        const located = { originLocation: places.origin, destinationLocation: places.destination };
+        resolvedPlaces.set(route.route, located);
+        await crawler.addRequests(calendarRequests({ ...route, ...located }, [{ from, to }], options));
     });
 
     router.addHandler(LABELS.FLIGHTS, async ({ request, body, crawler }) => {
@@ -189,8 +193,16 @@ export const createRouter = ({ options, maxFlightsPerSearch, onlyChanged, histor
         const { route, from, to } = request.userData as CalendarUserData;
         const prices = parseCalendarResponse(bodyText(body));
         if (prices === 'error') {
-            if (route.originLocation) throw new NonRetryableError('Google Flights rejected the price calendar request');
-            await crawler.addRequests([resolveRequest(route, from, options)]);
+            if (request.retryCount < CALENDAR_ERROR_RETRIES || route.originLocation) {
+                throw new Error('Google Flights rejected the price calendar request');
+            }
+            // Codes like NYC have to be sent as Google place ids
+            const located = resolvedPlaces.get(route.route);
+            await crawler.addRequests(
+                located
+                    ? calendarRequests({ ...route, ...located }, [{ from, to }], options)
+                    : [resolveRequest(route, from, to, options)],
+            );
             return;
         }
         if (prices === null) throw new Error(`${FORMAT_CHANGED_ERROR}: the price calendar answer has no data`);

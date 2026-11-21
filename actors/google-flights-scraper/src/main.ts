@@ -113,7 +113,6 @@ const crawler = new CheerioCrawler({
         maxFlightsPerSearch: Math.max(0, Math.floor(maxFlightsPerSearch)),
         onlyChanged,
         history,
-        calendarChunks,
     }),
     failedRequestHandler: async ({ request, crawler: failedCrawler }, error) => {
         const { route } = request.userData as FlightsUserData | CalendarUserData;

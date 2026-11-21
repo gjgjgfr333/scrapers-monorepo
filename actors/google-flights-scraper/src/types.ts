@@ -161,7 +161,9 @@ export interface CalendarUserData {
 
 export interface ResolveUserData {
     route: Route;
-    date: string;
+    /** The calendar chunk to load again once the places are known */
+    from: string;
+    to: string;
 }
 
 export interface CrawlState {
