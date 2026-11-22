@@ -2,8 +2,13 @@ import type { ProxyConfigurationOptions } from 'apify';
 
 export type ArchiveSort = 'new' | 'top';
 
+export type SearchDateRange = 'any' | 'day' | 'week' | 'month' | 'year';
+
 export interface Input {
-    publications: string[];
+    publications?: string[];
+    searchQueries?: string[];
+    maxPostsPerSearch?: number;
+    searchDateRange?: SearchDateRange;
     maxPostsPerPublication?: number;
     sort?: ArchiveSort;
     includeBody?: boolean;
@@ -14,6 +19,8 @@ export interface Input {
 
 export interface ScrapeOptions {
     maxPostsPerPublication: number;
+    maxPostsPerSearch: number;
+    searchDateRange: SearchDateRange;
     sort: ArchiveSort;
     includeBody: boolean;
     includeComments: boolean;
@@ -23,6 +30,7 @@ export interface ScrapeOptions {
 export interface RawByline {
     name?: string | null;
     handle?: string | null;
+    publicationUsers?: { publication_id?: number | null; publication?: { name?: string | null } | null }[] | null;
 }
 
 export interface RawTag {
@@ -51,6 +59,28 @@ export interface RawPost {
     body_html?: string | null;
     postTags?: RawTag[] | null;
     publishedBylines?: RawByline[] | null;
+    publication_id?: number | null;
+}
+
+// Subset of the publication objects returned next to post search results
+export interface RawPublication {
+    id: number;
+    name?: string | null;
+    base_url?: string | null;
+    /** "654" below 1,000, then rounded down: "7.9K+", "158K+" */
+    freeSubscriberCountOrderOfMagnitude?: string | null;
+}
+
+export interface SearchPage {
+    posts: RawPost[];
+    publications: Map<number, RawPublication>;
+    more: boolean;
+}
+
+export interface PublicationInfo {
+    name: string | null;
+    subscriberCount: number | null;
+    subscriberCountText: string | null;
 }
 
 export interface RawComment {
@@ -80,6 +110,10 @@ export interface PostComment {
 
 export interface PostItem {
     publicationUrl: string;
+    publicationName: string | null;
+    subscriberCount: number | null;
+    subscriberCountText: string | null;
+    searchQuery: string | null;
     postId: number;
     url: string;
     slug: string;
@@ -110,6 +144,11 @@ export interface ArchiveUserData {
     cursor: string | null;
 }
 
+export interface SearchUserData {
+    query: string;
+    page: number;
+}
+
 export interface PostUserData {
     item: PostItem;
     apiBaseUrl: string;
@@ -117,4 +156,8 @@ export interface PostUserData {
 
 export interface CrawlState {
     postsPerPublication: Record<string, number>;
+    postsPerSearch: Record<string, number>;
+    /** Post ids already taken from search results, so a post found by two queries is saved once */
+    searchPostIds: Record<string, true>;
+    postsFound: number;
 }

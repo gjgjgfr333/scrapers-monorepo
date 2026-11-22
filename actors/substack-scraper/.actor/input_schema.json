@@ -7,9 +7,50 @@
         "publications": {
             "title": "Publications",
             "type": "array",
-            "description": "Substack publications to scrape. Use a full URL (https://www.lennysnewsletter.com), a domain (example.substack.com) or just the handle (example).",
+            "description": "Substack publications to scrape. Use a full URL (https://www.lennysnewsletter.com), a domain (example.substack.com) or just the handle (example). Leave empty to use only search queries.",
             "editor": "stringList",
-            "prefill": ["https://www.lennysnewsletter.com"]
+            "prefill": [
+                "https://www.lennysnewsletter.com"
+            ]
+        },
+        "searchQueries": {
+            "title": "Search queries",
+            "type": "array",
+            "description": "Find posts across all of Substack by keyword or topic, without knowing the publications in advance. Each result comes with the publication name and its subscriber count. Results are sorted by relevance.",
+            "editor": "stringList",
+            "prefill": [
+                "AI agents"
+            ],
+            "default": []
+        },
+        "maxPostsPerSearch": {
+            "title": "Max posts per search query",
+            "type": "integer",
+            "description": "Maximum number of posts to return for each search query. Substack returns up to about 2,000 results per query.",
+            "minimum": 1,
+            "maximum": 2000,
+            "default": 50
+        },
+        "searchDateRange": {
+            "title": "Search posts published in",
+            "type": "string",
+            "description": "Limit search results to recent posts.",
+            "editor": "select",
+            "enum": [
+                "any",
+                "day",
+                "week",
+                "month",
+                "year"
+            ],
+            "enumTitles": [
+                "Any time",
+                "Last 24 hours",
+                "Last week",
+                "Last month",
+                "Last year"
+            ],
+            "default": "any"
         },
         "maxPostsPerPublication": {
             "title": "Max posts per publication",
@@ -23,8 +64,14 @@
             "type": "string",
             "description": "Order in which posts are taken from the publication archive.",
             "editor": "select",
-            "enum": ["new", "top"],
-            "enumTitles": ["Newest first", "Most popular first"],
+            "enum": [
+                "new",
+                "top"
+            ],
+            "enumTitles": [
+                "Newest first",
+                "Most popular first"
+            ],
             "default": "new"
         },
         "includeBody": {
@@ -51,9 +98,12 @@
             "type": "object",
             "description": "Proxy servers to use. Substack usually works without a proxy.",
             "editor": "proxy",
-            "default": { "useApifyProxy": false },
-            "prefill": { "useApifyProxy": false }
+            "default": {
+                "useApifyProxy": false
+            },
+            "prefill": {
+                "useApifyProxy": false
+            }
         }
-    },
-    "required": ["publications"]
+    }
 }
