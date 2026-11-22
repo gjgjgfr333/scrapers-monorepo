@@ -12,6 +12,8 @@ export const CHARGE_EVENTS = {
 
 let budgetWarningPrinted = false;
 
+export const isBudgetReached = () => budgetWarningPrinted;
+
 // Handlers run concurrently: without a queue two of them read the same remaining budget and both spend it
 let queue: Promise<unknown> = Promise.resolve();
 
