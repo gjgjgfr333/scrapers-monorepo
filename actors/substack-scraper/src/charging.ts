@@ -12,12 +12,10 @@ export const CHARGE_EVENTS = {
 
 let budgetWarningPrinted = false;
 
-/**
- * Pushes posts to the dataset and charges for what is actually delivered: one post event per item
- * (the more expensive one when the body was loaded) and one event per comment.
- * Stops the crawler once the maximum cost set by the user is reached.
- */
-export const pushPosts = async (items: PostItem[], crawler: Pick<CheerioCrawler, 'autoscaledPool'>) => {
+// Handlers run concurrently: without a queue two of them read the same remaining budget and both spend it
+let queue: Promise<unknown> = Promise.resolve();
+
+const pushPostsNow = async (items: PostItem[], crawler: Pick<CheerioCrawler, 'autoscaledPool'>) => {
     const chargingManager = Actor.getChargingManager();
     const { isPayPerEvent } = chargingManager.getPricingInfo();
     const affordable = (eventName: string) => chargingManager.calculateMaxEventChargeCountWithinLimit(eventName);
@@ -44,4 +42,15 @@ export const pushPosts = async (items: PostItem[], crawler: Pick<CheerioCrawler,
         if (isPayPerEvent && commentCount > 0)
             await Actor.charge({ eventName: CHARGE_EVENTS.COMMENT, count: commentCount });
     }
+};
+
+/**
+ * Pushes posts to the dataset and charges for what is actually delivered: one post event per item
+ * (the more expensive one when the body was loaded) and one event per comment.
+ * Stops the crawler once the maximum cost set by the user is reached.
+ */
+export const pushPosts = async (items: PostItem[], crawler: Pick<CheerioCrawler, 'autoscaledPool'>) => {
+    const run = queue.then(async () => pushPostsNow(items, crawler));
+    queue = run.catch(() => undefined);
+    return run;
 };
