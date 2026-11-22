@@ -1,4 +1,4 @@
-# Google Flights Scraper & API: Prices, Calendar & Tracking
+# Google Flights Scraper API 💰$0.50/1K: Calendar & Price Tracker
 
 ## What does Google Flights Scraper do?
 

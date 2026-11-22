@@ -1,4 +1,4 @@
-# Substack Scraper & API: Posts, Comments & Newsletters
+# Substack Scraper & API 💰from $0.50/1K: Posts & Comments
 
 ## What does Substack Scraper do?
 
