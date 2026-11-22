@@ -1,4 +1,4 @@
-# Shopify App Store Scraper & API: Apps, Pricing, Reviews
+# Shopify App Store Scraper & API 💰$1/1K: Apps, Pricing, Reviews
 
 ## What does Shopify App Store Scraper do?
 

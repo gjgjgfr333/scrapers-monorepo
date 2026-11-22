@@ -2,7 +2,7 @@
     "$schema": "https://apify.com/schemas/v1/actor.ide.json",
     "actorSpecification": 1,
     "name": "workday-jobs-scraper",
-    "title": "Workday Jobs Scraper & API: Any myworkdayjobs Site",
+    "title": "Workday Jobs Scraper & API 💰$1/1K: Any myworkdayjobs Site",
     "description": "Workday jobs scraper and API: every open job from any Workday career site (myworkdayjobs.com), past the 2,000-job search limit. Title, location, remote type, exact posting date, apply deadline, full description. $1 per 1,000 jobs.",
     "version": "0.0",
     "buildTag": "latest",

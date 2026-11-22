@@ -1,4 +1,4 @@
-# Agoda Scraper & API: Hotels and Guest Reviews
+# Agoda Scraper & API: Hotels & Reviews 💰$1.50/1K reviews
 
 ## What does Agoda Scraper do?
 

@@ -1,4 +1,4 @@
-# Greenhouse, Lever, Ashby, Workable, Recruitee, SmartRecruiters & Workday Jobs Scraper API
+# Greenhouse, Lever, Ashby & Workday Jobs Scraper API 💰$1.50/1K
 
 ## What does ATS Jobs Scraper do?
 

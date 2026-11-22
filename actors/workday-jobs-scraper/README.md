@@ -1,4 +1,4 @@
-# Workday Jobs Scraper & API: Any myworkdayjobs Site
+# Workday Jobs Scraper & API 💰$1/1K: Any myworkdayjobs Site
 
 ## What does Workday Jobs Scraper do?
 
