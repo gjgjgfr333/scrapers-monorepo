@@ -1,5 +1,5 @@
 {
-    "substack-scraper": ["substack", "substack scraper", "substack api", "newsletter scraper", "substack comments"],
+    "substack-scraper": ["substack", "substack scraper", "substack api", "newsletter scraper", "substack comments", "substack search"],
     "workday-jobs-scraper": ["workday", "workday jobs", "myworkdayjobs", "workday scraper", "career site jobs"],
     "ats-jobs-scraper": [
         "greenhouse",
