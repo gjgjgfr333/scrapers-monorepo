@@ -29,20 +29,51 @@ import {
     searchResultPublicationUrl,
 } from './utils.js';
 
-/** substack.com starts answering 429 after a burst of about a dozen search requests; 1.5 s apart they pass */
+/**
+ * Substack answers bursts with 429: substack.com after about a dozen searches, the publication domains when a run
+ * from shared datacenter IPs loads many posts at once. Requests are paced per host: searches always 1.5 s apart,
+ * other hosts without a pause until they answer 429, then 1 s apart. A 429 also stops the whole host for
+ * 10, 20, 40, then 60 s, so the other requests to it do not use up their retries meanwhile.
+ */
 const SEARCH_INTERVAL_MS = 1500;
-let nextSearchAt = 0;
+const RATE_LIMITED_INTERVAL_MS = 1000;
 
-/** Spaces out search requests across all queries; call it before every search request */
-export const waitForSearchSlot = async () => {
+interface HostPace {
+    nextAt: number;
+    interval: number;
+}
+const hostPace = new Map<string, HostPace>();
+
+const paceOf = (url: string) => {
+    const { host } = new URL(url);
+    let pace = hostPace.get(host);
+    if (!pace) {
+        pace = { nextAt: 0, interval: host === 'substack.com' ? SEARCH_INTERVAL_MS : 0 };
+        hostPace.set(host, pace);
+    }
+    return pace;
+};
+
+/** Waits for the request's turn on its host; call it before every request */
+export const waitForHostSlot = async (url: string) => {
+    const pace = paceOf(url);
     const now = Date.now();
-    const at = Math.max(now, nextSearchAt);
-    nextSearchAt = at + SEARCH_INTERVAL_MS;
+    const at = Math.max(now, pace.nextAt);
+    pace.nextAt = at + pace.interval;
     if (at > now) await sleep(at - now);
 };
 
-/** Pause before retrying a search answered with 429: 10, 20, 40, then 60 s */
-export const searchBackoffMs = (retryCount: number) => Math.min(60_000, 10_000 * 2 ** retryCount);
+/** Pause after a 429: 10, 20, 40, then 60 s */
+export const rateLimitBackoffMs = (retryCount: number) => Math.min(60_000, 10_000 * 2 ** retryCount);
+
+/** Records a 429 from the request's host: pauses the host and spaces out its later requests; returns the pause */
+export const hostRateLimited = (url: string, retryCount: number) => {
+    const pace = paceOf(url);
+    const pause = rateLimitBackoffMs(retryCount);
+    pace.nextAt = Math.max(pace.nextAt, Date.now() + pause);
+    pace.interval = Math.max(pace.interval, RATE_LIMITED_INTERVAL_MS);
+    return pause;
+};
 
 export const initialState = (): CrawlState => ({
     postsPerPublication: {},
