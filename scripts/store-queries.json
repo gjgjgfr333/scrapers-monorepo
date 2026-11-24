@@ -1,6 +1,19 @@
 {
-    "substack-scraper": ["substack", "substack scraper", "substack api", "newsletter scraper", "substack comments"],
-    "workday-jobs-scraper": ["workday", "workday jobs", "myworkdayjobs", "workday scraper", "career site jobs"],
+    "substack-scraper": [
+        "substack",
+        "substack scraper",
+        "substack api",
+        "newsletter scraper",
+        "substack comments",
+        "substack search"
+    ],
+    "workday-jobs-scraper": [
+        "workday",
+        "workday jobs",
+        "myworkdayjobs",
+        "workday scraper",
+        "career site jobs"
+    ],
     "ats-jobs-scraper": [
         "greenhouse",
         "greenhouse jobs",
@@ -10,7 +23,25 @@
         "career page jobs",
         "job scraper"
     ],
-    "shopify-app-store-scraper": ["shopify app store", "shopify apps", "shopify app reviews", "shopify app"],
-    "agoda-scraper": ["agoda", "agoda reviews", "agoda scraper", "hotel reviews", "agoda hotels"],
-    "google-flights-scraper": ["google flights", "google flights api", "google flights scraper", "flight prices", "flight price tracker", "cheap flights"]
+    "shopify-app-store-scraper": [
+        "shopify app store",
+        "shopify apps",
+        "shopify app reviews",
+        "shopify app"
+    ],
+    "agoda-scraper": [
+        "agoda",
+        "agoda reviews",
+        "agoda scraper",
+        "hotel reviews",
+        "agoda hotels"
+    ],
+    "google-flights-scraper": [
+        "google flights",
+        "google flights api",
+        "google flights scraper",
+        "flight prices",
+        "flight price tracker",
+        "cheap flights"
+    ]
 }

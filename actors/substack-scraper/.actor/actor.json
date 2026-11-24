@@ -3,7 +3,7 @@
     "actorSpecification": 1,
     "name": "substack-scraper",
     "title": "Substack Scraper & API 💰from $0.50/1K: Posts & Comments",
-    "description": "Substack scraper and API: export posts, full text and comments from any Substack newsletter or custom domain. Titles, authors, tags, likes, restacks, paid flag. No login. From $0.50 per 1,000 posts, to JSON, CSV or Excel.",
+    "description": "Substack scraper and API: search all of Substack by keyword or export any newsletter. Posts, full text, comments, likes, restacks, authors, publication subscriber counts. No login. From $0.50 per 1,000 posts, to JSON, CSV or Excel.",
     "version": "0.0",
     "buildTag": "latest",
     "meta": {
