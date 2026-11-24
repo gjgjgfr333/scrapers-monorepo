@@ -1,4 +1,3 @@
-import { setTimeout as sleep } from 'node:timers/promises';
 
 // Crawlee - web scraping and browser automation library (Read more at https://crawlee.dev)
 import { CheerioCrawler } from '@crawlee/cheerio';
@@ -8,7 +7,7 @@ import { Actor, log } from 'apify';
 // this is ESM project, and as such, it requires you to specify extensions in your relative imports
 // note that we need to use `.js` even when inside TS files
 import { isBudgetReached, pushPosts } from './charging.js';
-import { createRouter, initialState, searchBackoffMs, searchRequest, waitForSearchSlot } from './routes.js';
+import { createRouter, hostRateLimited, initialState, searchRequest, waitForHostSlot } from './routes.js';
 import type { ArchiveUserData, CrawlState, Input, PostUserData, ScrapeOptions, SearchUserData } from './types.js';
 import { buildArchiveUrl, LABELS, normalizePublicationUrl } from './utils.js';
 
@@ -57,20 +56,17 @@ const crawler = new CheerioCrawler({
     // The Substack API responds with JSON
     additionalMimeTypes: ['application/json'],
     maxConcurrency: 10,
-    // substack.com answers bursts of search requests with 429: searches are spaced out and retried after a pause
+    // Substack answers bursts with 429: requests are paced per host and a rate-limited host is paused (routes.ts)
     maxRequestRetries: 6,
     preNavigationHooks: [
         async ({ request }) => {
-            if (request.label === LABELS.SEARCH) await waitForSearchSlot();
+            await waitForHostSlot(request.url);
         },
     ],
     errorHandler: async ({ request, log: requestLog }, error) => {
-        if (request.label !== LABELS.SEARCH || !error.message.includes('429')) return;
-        const pause = searchBackoffMs(request.retryCount);
-        requestLog.info(`Substack search is rate limited, waiting ${pause / 1000} s`, {
-            query: request.userData.query,
-        });
-        await sleep(pause);
+        if (!error.message.includes('429')) return;
+        const pause = hostRateLimited(request.url, request.retryCount);
+        requestLog.info(`Substack is rate limiting requests, pausing ${new URL(request.url).host} for ${pause / 1000} s`);
     },
     requestHandler: createRouter(options),
     failedRequestHandler: async ({ request, crawler: failedCrawler }, error) => {
